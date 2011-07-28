@@ -1,0 +1,171 @@
+* {
+	line-height: 110%;
+}
+
+body {        
+	margin: 0px;        
+	padding: 0px;        
+	background-color: #18191b;
+}
+
+a {
+	color: #d7994f;
+	text-decoration: none;
+	
+}
+
+th a {
+	color: #fefffe;
+	text-decoration: none;
+	
+}
+
+a:hover {
+	color: #697d88;
+}
+
+.admin {
+	color: #c9b973;
+}
+
+.classified {
+	color: red;
+}
+
+
+#logo {
+	right: 30px;
+	position: absolute;
+	top: 77px;
+}
+
+#container {
+	background-position: right top;        
+	background-image: url(../img/layout/zergface2.png);        
+	background-repeat: no-repeat;        
+	font-family: Helvetica, Verdana, Arial, sans-serif;
+	color: #a19e9c;
+	font-size: small;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+#headercontent {
+	background-image: url(../img/layout/headerbackground2.png);
+	background-repeat: repeat-x;
+	width: 100%;
+	height: 136px;
+	padding-top: 6px;
+}
+
+#usercontent {
+	position: absolute;
+	right: 50px;
+	top: 5px;
+}
+	
+#content {
+	padding-right: 50px;
+	padding-left: 50px;
+}
+
+#breadcrumb {
+	line-height: 40px;
+	height: 40px;
+	border-bottom-color: #382e24;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	margin-bottom: 15px;
+}
+	
+#side {
+   width: 150px;
+   vertical-align: top;
+   position: absolute;
+}
+
+#activeusers {
+	margin-top: 20px;
+}
+	
+#main {    
+   vertical-align: top;
+}
+
+
+/** containers **/
+div.form,
+div.index,
+div.view {
+	margin-left: 150px;
+	padding-left: 10px;
+	
+   	border-left-color: #382e24;
+   	border-left-style: solid;
+   	border-left-width: 1px;
+}
+	
+div.page-header {
+	width: 50%;
+	text-align: justify;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+}
+
+div.page-header h2 {
+	text-align: center;
+	color: white;
+	padding: 0;
+	margin: 0;
+}
+
+div.page-header p {
+	border-bottom: 1px solid #382e24;
+	border-top: 1px solid #382e24;
+	padding: 5px 2px 5px 2px;
+}
+
+div.paging {
+	text-align: center;
+}
+
+#footer {
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+.left {
+	text-align: left;
+}
+
+.center {
+	text-align: center;
+}
+
+.right {
+	text-align: right;
+}
+
+.third {
+	width: 33%;
+}
+
+
+
+/** Forum Index Tables **/
+
+.forum_icon {
+	width: 2%;
+}
+
+.forum_title {
+	width: 31%;
+}
+.forum_author {
+	width: 34%;
+}
+.forum_lastpost {
+	width: 33%;
+}
