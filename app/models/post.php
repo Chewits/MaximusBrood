@@ -48,11 +48,6 @@ class Post extends AppModel {
 
 	var $belongsTo = array(
 		'User' => array(
-			'className' => 'User',
-			'foreignKey' => 'user_id',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
 			'counterCache' => true
 		),
 		'Last_User' => array(
@@ -60,8 +55,7 @@ class Post extends AppModel {
 			'foreignKey' => 'last_user_id',
 			'conditions' => '',
 			'fields' => '',
-			'order' => '',
-			'counterCache' => true
+			'order' => ''
 		),
 		'Board' => array(
 			'className' => 'Board',
