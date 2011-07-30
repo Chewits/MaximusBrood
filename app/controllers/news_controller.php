@@ -16,6 +16,27 @@ class NewsController extends AppController {
 		
 		$this->set('news', $news);
 	}
+
+	function add() {	
+		$this->Permissions->lock('Add News');
+	
+		if (!empty($this->data)) {
+			$this->data['Post']['user_id'] = $this->userData['User']['id'];
+			$this->data['Post']['timestamp'] = DboSource::expression('NOW()');
+			$this->data['Post']['last_user_id'] = $this->userData['User']['id'];
+			$this->data['Post']['last_post'] = DboSource::expression('NOW()');
+			$this->data['Post']['board_id'] = 5;
+		
+			$this->Post->create();
+			if ($this->Post->save($this->data)) {
+    			$this->Post->manualLog('News', 'Add', '', $this->Post->id);
+				$this->Session->setFlash('The news has been saved.');
+				$this->redirect(array('action' => 'index'));
+			} else {
+				$this->Session->setFlash('The news could not be saved. Please, try again.', 'default', array('class'=>'error-message'));
+			}
+		}
+	}
 	
 	function edit($id = null) {
 		$this->Permissions->lock('Edit News');
