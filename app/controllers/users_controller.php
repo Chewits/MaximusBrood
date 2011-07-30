@@ -11,7 +11,7 @@ class UsersController extends AppController {
 
 	function index() {
 		$this->User->recursive = 1;
-		$this->paginate = array('order'=>array('Rank.order'=>'DESC'), 'conditions'=>array('Rank.title !='=>'Guest')); //order users correctly and do not select guests
+		$this->paginate = array('order'=>array('Rank.order'=>'DESC'), 'conditions'=>array('Rank.title !='=>'Guest', 'Rank.exmember !='=>'1')); //order users correctly and do not select guests
 		$this->set('users', $this->paginate());
 	}
 
@@ -194,6 +194,12 @@ class UsersController extends AppController {
 		$weekinfo = array_reverse($weekinfo, true);
 		
 		$this->set('pageviews', array('Weekly'=>$weekinfo));
+	}
+	
+	function exmembers() {
+		//lets get the ex member ranks
+		$this->User->Rank->recursive = 0;
+		$this->set('ranks', $this->User->Rank->find('all', array('conditions'=>array('Rank.exmember'=>'1'))));
 	}
 }
 ?>

@@ -5,7 +5,7 @@ class RanksController extends AppController {
 
 	function index() {
 		$this->Rank->recursive = 0;
-		$this->set('ranks', $this->Rank->find('all', array('order'=>array('Rank.order'=>'DESC'))));
+		$this->set('ranks', $this->Rank->find('all', array('order'=>array('Rank.order'=>'DESC'), 'conditions'=>array('Rank.exmember'=>'0'))));
 	}
 
 	function view($id = null) {
