@@ -1,2 +1,3 @@
 /app/config/database.php
 /app/tmp/cache
+/app/tmp/logs
