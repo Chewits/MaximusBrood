@@ -69,13 +69,13 @@ class RanksController extends AppController {
 	
 	function moveUp($id) {
 		$this->Permissions->lock('Edit Rank');
-		$this->Rank->moveUp($id);
+		$this->Rank->moveUp($id, array('Rank.exmember'=>0));
 		$this->redirect(Controller::referer());
 	}
 	
 	function moveDown($id) {	
 		$this->Permissions->lock('Edit Rank');
-		$this->Rank->moveDown($id);	
+		$this->Rank->moveDown($id, array('Rank.exmember'=>0));	
 		$this->redirect(Controller::referer());
 	}
 }

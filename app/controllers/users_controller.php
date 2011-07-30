@@ -39,9 +39,8 @@ class UsersController extends AppController {
 		$this->set('profile', $this->User->find('first', array('conditions'=>array('User.id'=>$userid))));
 	}
 	
-	function show($type) {
-	
-		$conditions = array('Rank.title'=>$type);
+	function show($rank_type) {		
+		$conditions = array('Rank.title'=>$rank_type);
 		$this->paginate =  array('conditions'=>$conditions);
 		$this->set('users', $this->paginate());
 	}
