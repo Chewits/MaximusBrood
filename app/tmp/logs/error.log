@@ -466,3 +466,5 @@
 2011-07-30 16:16:54 Warning: Warning (2): Invalid argument supplied for foreach() in [/Users/finngrimwood/Sites/MaximusBrood/app/views/helpers/permissions.php, line 49]
 2011-07-30 16:21:04 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '0' at line 1</span> in [/Users/finngrimwood/Sites/MaximusBrood/cake/libs/model/datasources/dbo_source.php, line 684]
 2011-07-30 16:21:05 Warning: Warning (2): Invalid argument supplied for foreach() in [/Users/finngrimwood/Sites/MaximusBrood/app/views/ranks/index.ctp, line 10]
+2011-07-30 16:33:34 Warning: Warning (2): Invalid argument supplied for foreach() in [/Users/finngrimwood/Sites/MaximusBrood/app/views/elements/menu.ctp, line 3]
+2011-07-30 16:33:34 Warning: Warning (2): Invalid argument supplied for foreach() in [/Users/finngrimwood/Sites/MaximusBrood/app/views/layouts/default.ctp, line 29]
