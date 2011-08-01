@@ -96,5 +96,10 @@ class ArticlesController extends AppController {
 		$this->Article->moveDown($id, array('Article.category_id'=>$article['Article']['category_id']));	
 		$this->redirect(Controller::referer());
 	}
+	
+	function summary() {
+		$this->Category->recursive = 0;
+		$this->set('categories', $this->Article->Category->find('all'));
+	}
 }
 ?>

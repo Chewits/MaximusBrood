@@ -25,10 +25,18 @@ class UsersController extends AppController {
 				$this->redirect(array('controller'=>'users', 'action'=>'index'));
 		}
 		
+		$user = $this->User->find('first', array('conditions'=>array('User.id'=>$userid)));
+		
 		//get users promo history if required
 		if($this->Permissions->check('Edit User')) {
-			$this->Menu->addChild('Promote', array('controller'=>'members', 'action'=>'promote', $userid), true); //add the reply link to the menu
-			$this->Menu->addChild('Demote', array('controller'=>'members', 'action'=>'promote', $userid, 'false'), true); //add the reply link to the menu
+			if($user['Rank']['exmember'] == 0) {
+				$this->Menu->addChild('Promote', array('controller'=>'members', 'action'=>'promote', $userid), true); //add the reply link to the menu
+				$this->Menu->addChild('Demote', array('controller'=>'members', 'action'=>'promote', $userid, 'false'), true); //add the reply link to the menu
+			}
+			else {
+				$this->Menu->addChild('Reinstate', true); //add the reply link to the menu
+			}
+			
 			$this->Menu->addChild('Edit Profile', array('controller'=>'members', 'action'=>'edit', $userid), true); //add the reply link to the menu
 			$this->set('promotions', $this->Log->find('all', array('conditions'=>array('Log.additional_id'=>$userid, 'OR'=>array('Log.description'=>array('Promoted', 'Demoted'))), 'order'=>array('Log.id'=>'DESC'))));
 		}
@@ -36,7 +44,7 @@ class UsersController extends AppController {
 			$this->Menu->addChild('Edit Permissions', array('controller'=>'permissions', 'action'=>'edit', $userid), true); //add the reply link to the menu
 		
 		//get users profile
-		$this->set('profile', $this->User->find('first', array('conditions'=>array('User.id'=>$userid))));
+		$this->set('profile', $user);
 	}
 	
 	function show($rank_type) {		
@@ -151,8 +159,8 @@ class UsersController extends AppController {
 			$order = 'DESC';
 		}
     	
-    	$nextrank = $this->User->Rank->find('first', array('conditions'=>array('Rank.order '.$up_or_down=>$user['Rank']['order']), 'order'=>array('Rank.order'=>$order)));
-
+    	$nextrank = $this->User->Rank->find('first', array('conditions'=>array('Rank.order '.$up_or_down=>$user['Rank']['order'], 'Rank.exmember'=>0), 'order'=>array('Rank.order'=>$order)));
+		
     	//update the user then save
     	$user['User']['rank_id'] = $nextrank['Rank']['id'];
     	
