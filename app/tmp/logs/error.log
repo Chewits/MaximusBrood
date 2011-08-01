@@ -477,3 +477,7 @@
 2011-08-01 23:14:03 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/finngrimwood/Sites/MaximusBrood/cake/basics.php:355) in [/Users/finngrimwood/Sites/MaximusBrood/cake/libs/controller/controller.php, line 746]
 2011-08-01 23:14:04 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/finngrimwood/Sites/MaximusBrood/cake/basics.php:355) in [/Users/finngrimwood/Sites/MaximusBrood/cake/libs/controller/controller.php, line 746]
 2011-08-01 23:14:08 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /Users/finngrimwood/Sites/MaximusBrood/cake/basics.php:355) in [/Users/finngrimwood/Sites/MaximusBrood/cake/libs/controller/controller.php, line 746]
+2011-08-01 23:21:45 Warning: Warning (2): Invalid argument supplied for foreach() in [/Users/finngrimwood/Sites/MaximusBrood/cake/libs/set.php, line 1071]
+2011-08-01 23:22:12 Warning: Warning (2): Invalid argument supplied for foreach() in [/Users/finngrimwood/Sites/MaximusBrood/cake/libs/set.php, line 1071]
+2011-08-01 23:22:40 Warning: Warning (2): Invalid argument supplied for foreach() in [/Users/finngrimwood/Sites/MaximusBrood/cake/libs/set.php, line 1071]
+2011-08-01 23:22:47 Warning: Warning (2): Invalid argument supplied for foreach() in [/Users/finngrimwood/Sites/MaximusBrood/cake/libs/set.php, line 1071]
