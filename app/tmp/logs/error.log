@@ -481,3 +481,4 @@
 2011-08-01 23:22:12 Warning: Warning (2): Invalid argument supplied for foreach() in [/Users/finngrimwood/Sites/MaximusBrood/cake/libs/set.php, line 1071]
 2011-08-01 23:22:40 Warning: Warning (2): Invalid argument supplied for foreach() in [/Users/finngrimwood/Sites/MaximusBrood/cake/libs/set.php, line 1071]
 2011-08-01 23:22:47 Warning: Warning (2): Invalid argument supplied for foreach() in [/Users/finngrimwood/Sites/MaximusBrood/cake/libs/set.php, line 1071]
+2011-08-02 19:08:09 Warning: Warning (2): Invalid argument supplied for foreach() in [/Users/finngrimwood/Sites/MaximusBrood/app/views/articles/summary.ctp, line 11]
