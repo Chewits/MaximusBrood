@@ -1,4 +1,8 @@
 /app/config/database.php
 /app/tmp/cache
+<<<<<<< HEAD
 /app/tmp/logs
 /app/tmp
+=======
+/app/tmp/
+>>>>>>> 706475eee0151a6515ca1616f6aa06e9cdb1d0b3

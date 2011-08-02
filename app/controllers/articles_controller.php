@@ -98,8 +98,9 @@ class ArticlesController extends AppController {
 	}
 	
 	function summary() {
-		$this->Category->recursive = 0;
-		$this->set('categories', $this->Article->Category->find('all'));
+		//We are retrieving parent categories only, so we can unbind the parent category property.
+		$this->Article->Category->unbindModel(array('belongsTo'=>array('ParentCategory')));
+		$this->set('categories', $this->Article->Category->find('all', array('conditions'=>array('Category.category_id'=>0))));
 	}
 }
 ?>
