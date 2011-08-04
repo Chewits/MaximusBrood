@@ -77,7 +77,7 @@ class BbcodeHelper extends Shortcode{
 
 	// Quote
     function shortcode_quote( $atts = array(), $content = NULL ) {
-        return '<blockquote>' . $this->do_shortcode( $content ) . '</blockquote>';
+        return '<div class="quote"><hr />' . $this->do_shortcode( $content ) . '<hr /></div>';
     }
     
 }

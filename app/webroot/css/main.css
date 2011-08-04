@@ -473,3 +473,18 @@ div .profile li {
 }
 
 /** --- **/
+
+
+/** Some bbcode specific stuff **/
+
+.quote {
+	margin-right: 60px;
+	padding-left: 40px;
+	font: 8pt arial;
+}
+
+.quote hr {
+	height: 1px;
+	border: 0;
+	background-color: #382e24;
+}
