@@ -3,7 +3,7 @@ class ForumController extends AppController {
 
 	var $name = 'Forum';
 	var $uses = array('Post', 'Log');
-	var $helpers = array('Geolocation');
+	var $helpers = array('Geolocation', 'bbcode');
 	var $paginate;
 	var $threadSize = 10;
 

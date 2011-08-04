@@ -315,6 +315,12 @@
 </table>
 </div>
 
+
+<? 
+
+// Test bbcode works
+// echo  $bbcode->doShortcode('[b][u][i]This is bold italic and underlined.[/i][/u][/b]')  ?>
+
 <? endif ?>
 	
 

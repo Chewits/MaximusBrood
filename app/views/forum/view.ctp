@@ -36,7 +36,7 @@ $replyText = $replyCount.$replyWord;
 			 <?= $post['Post']['timestamp']; ?><br />
 			 <?= $permissionsLinks ?>
 		</td>
-		<td><?= $filter->text($post['Post']['description']); ?><br /><br />--<br /><br /><?= $post['User']['Profile']['signature'] ?></td>
+		<td><?= $bbcode->doShortcode($post['Post']['description']); ?><br /><br />--<br /><br /><?= $post['User']['Profile']['signature'] ?></td>
 	</tr>
 <?php endforeach; ?>
 </table>
