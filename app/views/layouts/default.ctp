@@ -27,7 +27,7 @@
    	             		<? 
    	             		//TODO: clean up this layout
    	             		foreach($activeUsers as $user) {
-   	             			echo '<p class="left">'.$html->image('icons/flags/'.$geolocation->countryToCode($user['User']['Profile']['country']).'.png').' '.$html->link($user['User']['username'], array('controller'=>'members', 'action'=>'view', $user['User']['id'])).'<br>'.$user['Log']['timestamp'].'</p><br />';
+   	             			echo '<p class="left">'.$html->image('icons/flags/'.$geolocation->countryToCode($user['User']['Profile']['country']).'.png').' '.$html->link($user['User']['username'], array('controller'=>'members', 'action'=>'view', $user['User']['id'])).'<br>'.$time->format('H:m:s', $user['Log']['timestamp']).'</p><br />';
    	             		} ?>
    	             	</div>
 	            </div> 
