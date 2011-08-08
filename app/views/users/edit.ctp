@@ -17,7 +17,8 @@
 		echo $this->Form->input('Profile.id', array('type'=>'hidden', 'between'=>': ')).'</br>';
 		echo $this->Form->input('Profile.real_name', array('between'=>': ')).'</br>';
 		echo $this->Form->input('Profile.email', array('between'=>': ')).'</br>';
-		echo $this->Form->input('Profile.date_of_birth', array('between'=>': ')).'</br>';echo'<div class="input text required"><label for="UserCountry">Country</label>: 
+		echo $this->Form->input('Profile.date_of_birth', array('minYear'=>'1900', 'maxYear'=>date('Y'), 'between'=>': ')).'</br>';
+		echo'<div class="input text required"><label for="UserCountry">Country</label>: 
 					<select name="data[Profile][country]"> 
 			<option value="United Kingdom" selected="selected">United Kingdom</option> 
 			<option value="United States">United States</option> 
