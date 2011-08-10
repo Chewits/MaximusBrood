@@ -253,8 +253,8 @@ function quotereplace($content) {
 	// function to allow HTML and BBCode
 	
 	function htmlon($text) {
-		$text = replacement($text);	
-		$text = htmlnl($text);
+		$text = $this->replacement($text);	
+		$text = $this->htmlnl($text);
 		$text = nl2br($text);
 		
 		return $text;
