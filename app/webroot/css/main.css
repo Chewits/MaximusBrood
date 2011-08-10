@@ -478,9 +478,15 @@ div .profile li {
 /** Some bbcode specific stuff **/
 
 .quote {
-	margin-right: 60px;
-	padding-left: 40px;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
 	font: 8pt arial;
+	width: 80%;
+	overflow: auto;
+	background-color:#141517; 
+	border: 1px #382e24 solid;
 }
 
 .quote hr {
