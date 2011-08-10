@@ -207,7 +207,7 @@ function quotereplace($content) {
 			$content = $this->urlreplace($content);
 			$content = $this->tubereplace($content);
 			$content = preg_replace_callback("#(^|<[^\"=]{1}>|\s|\[b|i|u\]][^<a.*>])(http://|https://|ftp://|mailto:|news:|www.)([^\s<>|$]+)#si",array($this, 'linkreplace'),$content);
-			$content = preg_replace("#\[email\](.*?)\[/email\]#sie", "'<a href=\"mailto:'.mail_protect(fixJavaEvents('\\1')).'\">'.fixJavaEvents('\\1').'</a>'", $content);
+			$content = preg_replace("#\[email\](.*?)\[/email\]#sie", "'<a href=\"mailto:'.bbcodehelper::mail_protect(bbcodehelper::fixJavaEvents('\\1')).'\">'.bbcodehelper::fixJavaEvents('\\1').'</a>'", $content);
 			$content = preg_replace("#\[email=(.*?)\](.*?)\[/email\]#sie", "'<a href=\"mailto:'.mail_protect(fixJavaEvents('\\1')).'\">\\2</a>'", $content);
 			$content = preg_replace_callback("#<a\b[^>]*>(.*?)</a>#si",array($this, 'cut_urls'),$content);
 			while(preg_match("#\[size=(.*?)\](.*?)\[/size\]#si", $content)){
