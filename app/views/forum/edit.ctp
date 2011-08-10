@@ -95,9 +95,7 @@
 <?php echo $this->Form->create('Post', array('id'=>'bbcodeadd', 'url'=>array('controller'=>'forum', 'action'=>'edit')));?>
 	<?php
 		echo $this->Form->input('id');
-		echo $this->Form->input('title');
 		echo $this->Form->input('description');
-		echo $this->Form->input('board_id');
 	?>
 <?php echo $this->Form->end('Submit');?>
 </fieldset>
