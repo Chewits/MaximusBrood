@@ -65,7 +65,7 @@
       </tr>
 	   <tr>
         <td>Joined:</td>
-        <td>18th July 2010 (365 days ago) </td>
+        <td>dd/mm/yyy (x days ago)</td>
       </tr>
 	   <tr>
         <td>Recruited by:</td>
@@ -97,7 +97,7 @@
       </tr>
 	   <tr>
         <td>SC2 Name.Code:</td>
-        <td>Chewits.957</td>
+        <td><?= $profile['Profile']['sc2name'],'.', $profile['Profile']['sc2code'] ?></td>
       </tr>
 	  <tr>
         <td>ICCUP Profile:</td>

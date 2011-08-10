@@ -265,6 +265,8 @@
 			</select></div><br />';
 		echo $this->Form->input('Profile.akas', array('between'=>': ')).'</br>';
 		echo $this->Form->input('Profile.sc2', array('between'=>': ')).'</br>';
+		echo $this->Form->input('Profile.sc2name', array('between'=>': ')).'</br>';
+		echo $this->Form->input('Profile.sc2code', array('between'=>': ')).'</br>';
 		echo $this->Form->input('Profile.iccup', array('between'=>': ')).'</br>';
 		echo $this->Form->input('Profile.facebook', array('between'=>': ')).'</br>';
 		echo $this->Form->input('Profile.skype', array('between'=>': ')).'</br>';

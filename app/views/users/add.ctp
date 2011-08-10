@@ -263,6 +263,8 @@
 		
 		//echo $this->Form->input('Profile.country', array('between'=>': ')).'</br>';
 		echo $this->Form->input('Profile.sc2', array('between'=>': ')).'</br>';
+		echo $this->Form->input('Profile.sc2name', array('between'=>': ')).'</br>';
+		echo $this->Form->input('Profile.sc2code', array('between'=>': ')).'</br>';
 		echo $this->Form->input('Profile.iccup', array('between'=>': ')).'</br>';
 		echo $this->Form->input('rank_id', array('between'=>': ')).'</br>';
 		echo $this->Form->input('Group', array('between'=>':<br />')).'</br>';
