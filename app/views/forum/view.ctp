@@ -4,7 +4,7 @@
 	for all official clan announcements such as promotions, clan wars and any other events
 	that happen to be taking place.</p>
 </div>
-
+<?php $javascript->link('bbcode.js', false); ?>
 <?
 //work out number of replies to display
 $replyWord = ($replyCount == 1) ? ' reply' : ' replies';

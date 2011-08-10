@@ -1,8 +1,7 @@
-// This needs changed to allow the use of multiple form/textarea names from this one file
-var form = 'PostReplyForm';
+
+var form = 'bbcodeadd';
 var textarea = 'PostDescription';
 var which=null;
-
 
 // some of functions here are not used just yet, kept for future use
 

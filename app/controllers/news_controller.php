@@ -2,6 +2,7 @@
 class NewsController extends AppController {
 	var $name = 'News';
 	var $uses = 'Post';
+	var $helpers = array('bbcode', 'Html', 'Form', 'Javascript');
 	
 	function index() {
 		$this->Post->recursive = 0;

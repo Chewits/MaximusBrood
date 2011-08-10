@@ -92,8 +92,7 @@
 </table>
 
 	<?php 
-		// Need to add an onsubmit="return chkFormular();" to this form, that checks all bbcode is correct and no errors. Not sure how with cakephp
-		echo $this->Form->create('Post', array('url'=>array('controller'=>'forum', 'action'=>'reply', $id)));
+		echo $this->Form->create('Post', array('id'=>'bbcodeadd', 'url'=>array('controller'=>'forum', 'action'=>'reply', $id)));
 		echo $this->Form->input('description', array('label'=>'Content', 'between'=>':<br />')).'</br>';
 		echo $this->Form->end(__('Submit', true));
 	?>
