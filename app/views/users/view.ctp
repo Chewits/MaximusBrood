@@ -3,7 +3,7 @@
 	<p>A user's profile contains everything you need to know about someone. From their age to their akas
 	this is the place to be. Make sure you keep your profile up to date!</p>
 </div>
-
+<?php $javascript->link('bbcode.js', false); ?>
 <?
 	$permissionsData = array(
 		'Edit User'=>array(
@@ -23,7 +23,7 @@
 		<? 
 		
 		if(!empty($profile['Profile']['description'])) {
-			echo $filter->text($profile['Profile']['description']);
+			echo $bbcode->bbcodeon_noimg($profile['Profile']['description']);
 		} else {
 			echo 'This user does not have a bio.';
 		}
@@ -295,7 +295,7 @@
         		<? 
 		
 		if(!empty($profile['Profile']['private_description'])) {
-			echo $filter->text($profile['Profile']['private_description']);
+			echo $bbcode->bbcodeon_noimg($profile['Profile']['private_description']);
 		} else {
 			echo 'This user does not have any comments.';
 		}

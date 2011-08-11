@@ -36,7 +36,7 @@ $replyText = $replyCount.$replyWord;
 			 <?= $post['Post']['timestamp']; ?><br />
 			 <?= $permissionsLinks ?>
 		</td>
-		<td><?= $bbcode->bbcodeon($post['Post']['description']); ?><br /><br />--<br /><br /><?= $bbcode->bbcodeon($post['User']['Profile']['signature']); ?></td>
+		<td><?= $bbcode->bbcodeon($post['Post']['description']); ?><br /><br />--<br /><br /><?= $bbcode->bbcodeon_noimg($post['User']['Profile']['signature']); ?></td>
 	</tr>
 <?php endforeach; ?>
 </table>

@@ -3,7 +3,7 @@ class UsersController extends AppController {
 
 	var $name = 'Users';
 	var $uses = array('User', 'Log');
-	var $helpers = array('Battlenet', 'Chart', 'Bbcode');
+	var $helpers = array('Battlenet', 'Chart', 'Bbcode', 'Html', 'Form', 'Javascript');
 
 	function beforeFilter() {
 		parent::beforeFilter();
