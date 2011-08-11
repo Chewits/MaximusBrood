@@ -5,14 +5,16 @@
 	that happen to be taking place.</p>
 </div>
 
+<?php $javascript->link('bbcode.js', false); ?>
 <fieldset>
  	<legend>Edit Post</legend>
-<?php echo $this->Form->create('Post', array('url'=>array('controller'=>'forum', 'action'=>'edit')));?>
+<?= $this->element('bbcodeinput'); ?>
+
+<?php echo $this->Form->create('Post', array('id'=>'bbcodeadd', 'url'=>array('controller'=>'forum', 'action'=>'edit')));?>
 	<?php
-		echo $this->Form->input('id');
 		echo $this->Form->input('title');
+		echo $this->Form->input('id');
 		echo $this->Form->input('description');
-		echo $this->Form->input('board_id');
 	?>
 <?php echo $this->Form->end('Submit');?>
 </fieldset>

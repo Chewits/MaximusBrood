@@ -77,7 +77,7 @@ class BbcodeHelper extends Helper {
 				}
 			}
 		}
-		else $content = preg_replace("#\[img\](.*?)(png|gif|jpeg|jpg)\[/img\]#sie", "'<img src=\"'.fixJavaEvents('\\1\\2').'\" border=\"0\" alt=\"'.fixJavaEvents('\\1\\2').'\" />'", $content);
+		else $content = preg_replace("#\[img\](.*?)(png|gif|jpeg|jpg)\[/img\]#sie", "'<img src=\"'.$this->fixJavaEvents('\\1\\2').'\" border=\"0\" alt=\"'.fixJavaEvents('\\1\\2').'\" />'", $content);
 	
 		return $content;
 	}
@@ -202,22 +202,21 @@ function quotereplace($content) {
 	
 	function replacement($content) {
 	
-			$content = $this->imgreplace($content);
+
 			$content = $this->quotereplace($content);
 			$content = $this->urlreplace($content);
-			$content = $this->tubereplace($content);
 			$content = preg_replace_callback("#(^|<[^\"=]{1}>|\s|\[b|i|u\]][^<a.*>])(http://|https://|ftp://|mailto:|news:|www.)([^\s<>|$]+)#si",array($this, 'linkreplace'),$content);
 			$content = preg_replace("#\[email\](.*?)\[/email\]#sie", "'<a href=\"mailto:'.bbcodehelper::mail_protect(bbcodehelper::fixJavaEvents('\\1')).'\">'.bbcodehelper::fixJavaEvents('\\1').'</a>'", $content);
-			$content = preg_replace("#\[email=(.*?)\](.*?)\[/email\]#sie", "'<a href=\"mailto:'.mail_protect(fixJavaEvents('\\1')).'\">\\2</a>'", $content);
+			$content = preg_replace("#\[email=(.*?)\](.*?)\[/email\]#sie", "'<a href=\"mailto:'.bbcodehelper::mail_protect(bbcodehelper::fixJavaEvents('\\1')).'\">\\2</a>'", $content);
 			$content = preg_replace_callback("#<a\b[^>]*>(.*?)</a>#si",array($this, 'cut_urls'),$content);
 			while(preg_match("#\[size=(.*?)\](.*?)\[/size\]#si", $content)){
-			  $content = preg_replace("#\[size=(.*?)\](.*?)\[/size\]#si", "<font size=\"\\1\">\\2</font>", $content);
+			  $content = preg_replace("#\[size=(.*?)\](.*?)\[/size\]#si", "<div style=font-size:\\1px>\\2</div>", $content);
 			}
 			while(preg_match("#\[color=(.*?)\](.*?)\[/color\]#si", $content)){  
-			  $content = preg_replace("#\[color=(.*?)\](.*?)\[/color\]#si", "<font color=\"\\1\">\\2</font>", $content);
+			  $content = preg_replace("#\[color=(.*?)\](.*?)\[/color\]#si", "<div style=color:\\1>\\2</div>", $content);
 			}
 			while(preg_match("#\[font=(.*?)\](.*?)\[/font\]#si", $content)){
-			  $content = preg_replace("#\[font=(.*?)\](.*?)\[/font\]#si", "<font face=\"\\1\">\\2</font>", $content);
+			  $content = preg_replace("#\[font=(.*?)\](.*?)\[/font\]#si", "<div style=font-family:\"\\1\">\\2</div>", $content);
 			}
 			while(preg_match("#\[align=(.*?)\](.*?)\[/align\]#si", $content)){
 			  $content = preg_replace("#\[align=(.*?)\](.*?)\[/align\]#si", "<div align=\"\\1\">\\2</div>", $content);
@@ -232,6 +231,8 @@ function quotereplace($content) {
 			$content = preg_replace("#\[\*\](.*?)\[/\*\](\s){0,}#si", "<li>\\1</li>", $content);
 			$content = preg_replace("#\[br]#si", "<br />", $content);
 			$content = preg_replace("#\[hr]#si", "<hr />", $content);
+			$content = preg_replace("#\[sub\](.*?)\[/sub\]#si", "<sub>\\1</sub>",$content);
+			$content = preg_replace("#\[sup\](.*?)\[/sup\]#si", "<sup>\\1</sup>",$content);
 		return $content;
 	}
 
@@ -243,12 +244,26 @@ function quotereplace($content) {
 		$text = htmlspecialchars($text);
 		$text = strip_tags($text);
 		$text = nl2br($text);
+		$text = $this->imgreplace($text);
+		$text = $this->tubereplace($text);
+		$text = $this->replacement($text);
+		$text = $this->htmlnl($text);
+
+	
+		return $text;
+	}
+	
+	// function to allow BBCode only with NO images/youtube
+
+	function bbcodeon_noimg($text) {
+		$text = htmlspecialchars($text);
+		$text = strip_tags($text);
+		$text = nl2br($text);
 		$text = $this->replacement($text);
 		$text = $this->htmlnl($text);
 	
 		return $text;
 	}
-	
 	
 	// function to allow HTML and BBCode
 	

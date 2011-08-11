@@ -262,6 +262,7 @@
 			</select></div><br />';
 		
 		//echo $this->Form->input('Profile.country', array('between'=>': ')).'</br>';
+		echo $this->Form->input('Profile.email', array('between'=>': ')).'</br>';
 		echo $this->Form->input('Profile.sc2', array('between'=>': ')).'</br>';
 		echo $this->Form->input('Profile.sc2name', array('between'=>': ')).'</br>';
 		echo $this->Form->input('Profile.sc2code', array('between'=>': ')).'</br>';

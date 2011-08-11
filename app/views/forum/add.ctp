@@ -5,10 +5,12 @@
 	that happen to be taking place.</p>
 </div>
 
+<?php $javascript->link('bbcode.js', false); ?>
 <fieldset>
 	<legend>Add Thread</legend>
+<?= $this->element('bbcodeinput'); ?>
 	<?php 
-		echo $this->Form->create('Post', array('url'=>array('controller'=>'forum', 'action'=>'add')));
+		echo $this->Form->create('Post', array('id'=>'bbcodeadd', 'url'=>array('controller'=>'forum', 'action'=>'add')));
 		echo $this->Form->input('title', array('between'=>': ')).'</br>';
 		echo $this->Form->input('description', array('between'=>':<br />')).'</br>';
 		echo $this->Form->input('board_id', array('between'=>': ')).'</br>';
