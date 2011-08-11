@@ -32,9 +32,10 @@ class UsersController extends AppController {
 			if($user['Rank']['exmember'] == 0) {
 				$this->Menu->addChild('Promote', array('controller'=>'members', 'action'=>'promote', $userid), true); //add the reply link to the menu
 				$this->Menu->addChild('Demote', array('controller'=>'members', 'action'=>'promote', $userid, 'false'), true); //add the reply link to the menu
+				$this->Menu->addChild('Dismiss', array('controller'=>'members', 'action'=>'reinstate', $userid, 'false'), true);
 			}
 			else {
-				$this->Menu->addChild('Reinstate', true); //add the reply link to the menu
+				$this->Menu->addChild('Reinstate', array('controller'=>'members', 'action'=>'reinstate', $userid), true); //add the reply link to the menu
 			}
 			
 			$this->Menu->addChild('Edit Profile', array('controller'=>'members', 'action'=>'edit', $userid), true); //add the reply link to the menu
@@ -208,6 +209,36 @@ class UsersController extends AppController {
 		//lets get the ex member ranks
 		$this->User->Rank->recursive = 0;
 		$this->set('ranks', $this->User->Rank->find('all', array('conditions'=>array('Rank.exmember'=>'1'))));
+	}
+	
+	function reinstate($user_id = null, $reinstate = true) {
+		$user = $this->User->read(null, $user_id);
+		pr($reinstate);
+		
+		if($reinstate == 'true') {
+			if(!empty($this->data)) {
+				//have to save the user			
+				if($this->User->save($this->data)) {
+					$this->User->manualLog('User', 'Reinstate', $user['Rank']['title'], $user['User']['id']);
+					if($user['Rank']['exmember'] == 0) {
+						$this->Session->setFlash('User reinstated.', 'default');
+						$this->redirect(array('controller'=>'users', 'action'=>'index'));
+					} else {
+						$this->Session->setFlash('User dismissed.', 'default');
+						$this->redirect(array('controller'=>'users', 'action'=>'index'));
+					}
+				}
+			} else {
+				$ranks = $this->User->Rank->find('list', array('conditions'=>array('Rank.exmember'=>'0'), 'order'=>array('Rank.order'=>'DESC')));
+				$this->data = $user;
+				$this->set('ranks', $ranks);
+			}
+		} else {
+			$ranks = $this->User->Rank->find('list', array('conditions'=>array('Rank.exmember'=>'1'), 'order'=>array('Rank.order'=>'DESC')));
+			$this->data = $user;
+			$this->set('ranks', $ranks);
+		}
+    		
 	}
 }
 ?>
