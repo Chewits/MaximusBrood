@@ -213,14 +213,13 @@ class UsersController extends AppController {
 	
 	function reinstate($user_id = null, $reinstate = true) {
 		$user = $this->User->read(null, $user_id);
-		pr($reinstate);
 		
 		if($reinstate == 'true') {
 			if(!empty($this->data)) {
 				//have to save the user			
 				if($this->User->save($this->data)) {
 					$this->User->manualLog('User', 'Reinstate', $user['Rank']['title'], $user['User']['id']);
-					if($user['Rank']['exmember'] == 0) {
+					if($user['Rank']['exmember'] == '1') {
 						$this->Session->setFlash('User reinstated.', 'default');
 						$this->redirect(array('controller'=>'users', 'action'=>'index'));
 					} else {
