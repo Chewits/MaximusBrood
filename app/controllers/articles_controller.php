@@ -9,6 +9,8 @@ class ArticlesController extends AppController {
 	}
 
 	function view($id) {
+		
+	
 		if (!$id) {
 			$this->Session->setFlash('That article does not exist!', 'default', array('class'=>'error-message'));
 			$this->redirect(array('action' => 'index'));
@@ -23,8 +25,11 @@ class ArticlesController extends AppController {
 		//check to see if this article is one record in a bigger 
 		//article... ie. rules and change the view accordingly
 		if($article['Category']['full'] == true) {
+			$this->Menu->setAlias(strtolower($article['Category']['title']));
 			$this->set('category', $category);
 			$this->render('viewcategoryfull');
+		} else {
+			$this->Menu->setAlias(strtolower($article['Article']['title']));
 		}
 	}
 
@@ -98,6 +103,7 @@ class ArticlesController extends AppController {
 	}
 	
 	function summary() {
+		//$this->Menu->setAlias('pages');
 		//We are retrieving parent categories only, so we can unbind the parent category property.
 		$this->Article->Category->unbindModel(array('belongsTo'=>array('ParentCategory')));
 		$this->set('categories', $this->Article->Category->find('all', array('conditions'=>array('Category.category_id'=>0))));

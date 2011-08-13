@@ -333,9 +333,9 @@ div .record {
 	margin-bottom: 20px;
 }
 div .record ul {
-	border-bottom: 1px solid #382e24;
+	/**border-bottom: 1px solid #382e24;
 	border-top: 1px solid #382e24;
-	padding: 5px 2px 5px 2px;
+	padding: 5px 2px 5px 2px;**/
 }
 div .record li {
 	padding-bottom: 2px;

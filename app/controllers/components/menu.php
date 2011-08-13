@@ -47,7 +47,6 @@ class MenuComponent extends Object {
 	
 	function getMainMenu() {
 		$this->root_menu = $this->Link->find('all', array('conditions'=>array('Link.link_id'=>'0'), 'order'=>array('order'=>'DESC')));
-		
 		$this->controller->set('root_menu', $this->root_menu);
 	}
 	
@@ -57,7 +56,6 @@ class MenuComponent extends Object {
 		$sub_menu = '';
 		$parent_item = '';
 		if(!is_null($this->alias)) {
-			echo $this->alias;
 			//have we selected a specific menu based on the alias?			
 			$parent_item = $this->Link->find('first', array('conditions'=>array('Link.link_id'=>'0', 'Link.alias'=>$this->alias), 'order'=>array('order'=>'DESC')));
 			$this->sub_menu = $this->Link->find('all', array('conditions'=>array('Link.link_id'=>'0', 'Link.link_id'=>$parent_item['Link']['id']), 'order'=>array('order'=>'DESC')));
