@@ -19,7 +19,10 @@
             </div>
             <div id="content">                
                 <div id="side">
-   	             	<?= $this->element('menu', array('menuData'=>$menuData)); ?>
+                	<div>
+   	             		<h2>Navigation</h2>
+   	             		<?= $this->element('menu', array('root_menu'=>$root_menu)); ?>
+   	             	</div>
    	             	
    	             	<div id="activeusers">
    	             		<h2>Active Users</h2>

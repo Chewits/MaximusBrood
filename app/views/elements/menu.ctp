@@ -1,41 +1,22 @@
 <?
+
 $menu = '<ul>';
-foreach($menuData as $menuItem) {
-	if($menuItem['Link']['permission_id'] != 0) { //if this is true, we need to check some permissions before allowing this
-		if($permissions->check($menuItem['Permission']['title'], $userData)) { //so lets check the permission
-			$menu .= '<li>'.$html->link($menuItem['Link']['title'], makeUrl($menuItem), array('class'=>'admin')).'</li>';
+
+foreach($root_menu as $menu_item) {
+	$menu .= '<li>'.$html->link($menu_item['Link']['title'], array('controller'=>$menu_item['Link']['controller'], 'action'=>$menu_item['Link']['action']), null).'</li>';
+	
+	//check to see if this menu item has the sub-menu attached
+	if($main_menu_id == $menu_item['Link']['id']) {
+		//draw the sub menu
+		$menu .= '<ul>';
+		foreach($sub_menu as $menu_item) {
+			$admin ='';
+			if($menu_item['Link']['permission_id'] != '0')
+				$admin = 'admin';
+			$menu .= '<li>'.$html->link($menu_item['Link']['title'], array('controller'=>$menu_item['Link']['controller'], 'action'=>$menu_item['Link']['action']), array('class'=>$admin)).'</li>';
 		}
-	} else { //if we're here then this link does not require permissions
-		$menu .= '<li>'.$html->link($menuItem['Link']['title'], makeUrl($menuItem)).'</li>';
+		$menu .= '</ul>';
 	}
-	
-	//now draw children
-	if(strtolower($menuItem['Link']['controller']) == strtolower($this->params['controller']) && isset($childMenuData)) {
-		if($menuItem['Link']['id'] == $childMenuData[0]['Link']['link_id'])
-		{		
-			$menu .= '<ul>';
-			foreach($childMenuData as $childMenuItem) {
-				if($childMenuItem['Link']['permission_id'] != 0) { //child menu item requires permission
-					if($permissions->check($childMenuItem['Permission']['title'], $userData)) {
-						$menu .= '<li>'.$html->link($childMenuItem['Link']['title'], makeURL($childMenuItem), array('class'=>'admin')).'</li>';
-					}
-				} else { //no permission needed
-					$menu .= '<li>'.$html->link($childMenuItem['Link']['title'], makeURL($childMenuItem)).'</li>';
-				}
-			}
-			//render any additional items from the controller
-			foreach($extraMenuData as $childMenuItem) {
-				if(!$childMenuItem['Link']['admin'])
-					$menu .= '<li>'.$html->link($childMenuItem['Link']['title'], $childMenuItem['Link']['url']).'</li>';
-				else
-					$menu .= '<li>'.$html->link($childMenuItem['Link']['title'], $childMenuItem['Link']['url'], array('class'=>'admin')).'</li>';
-			}
-			$menu .= '</ul>';
-		}
-	}
-	
-	
-	
 }
 
 //display login/logout link
@@ -47,16 +28,5 @@ if(!$permissions->check('Allow Login', $userData)) { //this is true if we are lo
 
 $menu .= '</ul>';
 
-//output the stuff we've generated
-echo '<h2>Navigation</h2>';
 echo $menu;
-
-
-
-//a function for making a url from the link data
-function makeUrl($linkData) {
-	return empty($linkData['url']) ? array('controller'=>$linkData['Link']['controller'], 'action'=>$linkData['Link']['action']) : $linkData['Link']['url'];
-}
-
-
 ?>

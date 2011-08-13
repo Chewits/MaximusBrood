@@ -46,6 +46,15 @@ class AppController extends Controller {
 		
 		$this->Auth->allowedActions = array('*'); //allow access to everything - any security that is needed is done by permissions
 		
+		
+		
+		
+		
+		$this->Menu->getMainMenu();
+		$this->Menu->getSubMenu();
+		
+		
+		/*
 		//get the menu
 		$this->extraMenuData = array();
 		$this->set('extraMenuData', $this->extraMenuData);
@@ -66,6 +75,13 @@ class AppController extends Controller {
 				break;
 			}
 		}
+		*/
+		
+		
+		
+		
+		
+		
 		
 		//if the user is logged in send all their relavant info to the view & model
 		//this is easier and just as (or more?) secure as sessions
