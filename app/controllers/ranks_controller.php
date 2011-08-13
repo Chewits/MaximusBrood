@@ -56,9 +56,10 @@ class RanksController extends AppController {
 		$this->Permissions->lock('Delete Rank');
 		
 		$rank = $this->Rank->find('first', array('conditions'=>array('Rank.id'=>$id)));
-		if(true) {
-			pr($rank);
-			die;
+		
+		if(count($rank['User']) != 0) {
+			$this->Session->setFlash('Rank was not deleted. Users have this rank.', 'default', array('class'=>'error-message'));
+			$this->redirect(array('controller'=>'ranks', 'action'=>'view', $rank['Rank']['id']));
 		}
 	
 		if (!$id) {
