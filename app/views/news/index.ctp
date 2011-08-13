@@ -15,11 +15,18 @@
 	$permissionsLinks = $permissions->linkList($permissionsData, $userData);
 ?>
 
-<div class="record">
+
+<div class="news">
 <h2><?= $article['Post']['title'] ?></h2>
-<p><?= $bbcode->bbcodeon($article['Post']['description']); ?></p>
+<p class="newstop"></p>
+<?= $bbcode->bbcodeon($article['Post']['description']); ?>
+<p class="newsbot"></p>
 <p class="actions"><?= $permissionsLinks ?><? if(!empty($permissionsLinks)) echo " - " ?><?= $html->link($plural->ize('comment', $article['Post']['replies']), array('controller'=>'forum', 'action'=>'view', $article['Post']['id'])) ?> - Posted by <?php echo $this->Html->link($article['User']['username'], array('controller' => 'users', 'action' => 'view', $article['User']['id'])); ?></p> 
 </div>
 
 
 <? endforeach; ?>
+
+
+
+

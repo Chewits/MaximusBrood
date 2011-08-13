@@ -210,16 +210,16 @@ function quotereplace($content) {
 			$content = preg_replace("#\[email=(.*?)\](.*?)\[/email\]#sie", "'<a href=\"mailto:'.bbcodehelper::mail_protect(bbcodehelper::fixJavaEvents('\\1')).'\">\\2</a>'", $content);
 			$content = preg_replace_callback("#<a\b[^>]*>(.*?)</a>#si",array($this, 'cut_urls'),$content);
 			while(preg_match("#\[size=(.*?)\](.*?)\[/size\]#si", $content)){
-			  $content = preg_replace("#\[size=(.*?)\](.*?)\[/size\]#si", "<div style=font-size:\\1px>\\2</div>", $content);
+			  $content = preg_replace("#\[size=(.*?)\](.*?)\[/size\]#si", "<span style=\"font-size: \\1px;\">\\2</span>", $content);
 			}
 			while(preg_match("#\[color=(.*?)\](.*?)\[/color\]#si", $content)){  
-			  $content = preg_replace("#\[color=(.*?)\](.*?)\[/color\]#si", "<div style=color:\\1>\\2</div>", $content);
+			  $content = preg_replace("#\[color=(.*?)\](.*?)\[/color\]#si", "<span style=\"color: \\1;\">\\2</span>", $content);
 			}
 			while(preg_match("#\[font=(.*?)\](.*?)\[/font\]#si", $content)){
-			  $content = preg_replace("#\[font=(.*?)\](.*?)\[/font\]#si", "<div style=font-family:\"\\1\">\\2</div>", $content);
+			  $content = preg_replace("#\[font=(.*?)\](.*?)\[/font\]#si", "<span style=\"font-family: \\1;\">\\2</span>", $content);
 			}
 			while(preg_match("#\[align=(.*?)\](.*?)\[/align\]#si", $content)){
-			  $content = preg_replace("#\[align=(.*?)\](.*?)\[/align\]#si", "<div align=\"\\1\">\\2</div>", $content);
+			  $content = preg_replace("#\[align=(.*?)\](.*?)\[/align\]#si", "<div style=\"text-align: \\1;\">\\2</div>", $content);
 			}
 			$content = preg_replace("#\[b\](.*?)\[/b\]#si", "<b>\\1</b>",$content);
 			$content = preg_replace("#\[i\](.*?)\[/i\]#si", "<i>\\1</i>",$content);
