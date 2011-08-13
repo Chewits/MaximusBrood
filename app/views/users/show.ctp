@@ -1,12 +1,37 @@
-<? if($users[0]['Rank']['exmember'] == 0): ?>
+<? if($users[0]['Rank']['title'] == "Guest"): ?>
 
 <div class="page-header">
-	<h2>Members List</h2>
-	<p>This is the official
-	 member list of the clan, users not on this list are not part of the 
-	 clan. If you wish to join the clan you should speak to one of our
-	 members on Battle.NET. There <?= count($users) > 1 ? 'are' : 'is' ?> <?= $plural->ize('member', count($users)) ?>.</p>
+	<h2>Guest List</h2>
+	<p>This is the official guest list of the clan. There <?= count($users) > 1 ? 'are' : 'is' ?> <?= $plural->ize('member', count($users)) ?>.</p>
 </div>
+
+
+<? elseif($users[0]['Rank']['title'] == "Legends"): ?>
+
+<div class="page-header">
+	<h2>Legends</h2>
+	<p>These members served with distinction within the clan, and should be commended for their period of service. 
+	Most of these members made a significant impact on the Brood, and parted on good terms - or at least left stories 
+	and events well worth re-telling! This is our tribute to them.</p>
+</div>
+
+
+<? elseif($users[0]['Rank']['title'] == "Ex-Members"): ?>
+
+<div class="page-header">
+	<h2>Ex-Members</h2>
+	<p>Having served with the clan for a period, these members decided to part ways with the clan, to fade into the mists of time.. 
+	they are welcome to re-trial in the future should they wish to do so.</p>
+</div>
+
+
+<? elseif($users[0]['Rank']['title'] == "Wash Outs"): ?>
+
+<div class="page-header">
+	<h2>Wash-outs</h2>
+	<p>These ex-members took a stroll down wash-out lane after leaving the clan in anonymity or disgrace. Don't call us wash-out, we'll call you.</p>
+</div>
+
 
 <? else: ?>
 
