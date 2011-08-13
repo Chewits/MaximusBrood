@@ -1,9 +1,6 @@
 <div class="page-header">
-	<h2>Members List</h2>
-	<p>This is the official
-	 member list of the clan, users not on this list are not part of the 
-	 clan. If you wish to join the clan you should speak to one of our
-	 members on Battle.NET.</p>
+	<h2>Ex-Members List</h2>
+	<p>The Ex-members section does pretty much what it says on the tin. Bygone heros, people and villans are listed respectively in the legends, ex-member and wash-outs sections.</p>
 </div>
 
 <? 	foreach($ranks as $rank): ?>
