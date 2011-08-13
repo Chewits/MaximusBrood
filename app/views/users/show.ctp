@@ -1,3 +1,5 @@
+<? if($users[0]['Rank']['exmember'] == 0): ?>
+
 <div class="page-header">
 	<h2>Members List</h2>
 	<p>This is the official
@@ -5,6 +7,17 @@
 	 clan. If you wish to join the clan you should speak to one of our
 	 members on Battle.NET. There <?= count($users) > 1 ? 'are' : 'is' ?> <?= $plural->ize('member', count($users)) ?>.</p>
 </div>
+
+<? else: ?>
+
+<div class="page-header">
+	<h2>Ex-Members List</h2>
+	<p>The ex-members section does pretty much what it says on the tin. 
+	Bygone heros, people and villans are listed respectively in the 
+	legends, ex-member and wash-outs sections.</p>
+</div>
+
+<? endif; ?>
 
 <table cellpadding="0" cellspacing="0">
 	<tr>

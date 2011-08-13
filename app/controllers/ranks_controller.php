@@ -54,6 +54,12 @@ class RanksController extends AppController {
 
 	function delete($id = null) {
 		$this->Permissions->lock('Delete Rank');
+		
+		$rank = $this->Rank->find('first', array('conditions'=>array('Rank.id'=>$id)));
+		if(true) {
+			pr($rank);
+			die;
+		}
 	
 		if (!$id) {
 			$this->Session->setFlash('Invalid rank', 'default', array('class'=>'error-message'));

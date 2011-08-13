@@ -47,15 +47,15 @@ class MenuHelper extends Helper {
 	}
 	
 	function check_permissions($link_data, $user_data) {
-		$user_permissions = $user_data['Permission'];
-		
 		if(isset($link_data['Link']['permission_id']) && $link_data['Link']['permission_id'] != '0') {	
-			foreach($user_permissions as $permission) {
-				if($permission['id'] == $link_data['Link']['permission_id']) {
-					return true;
+			if(isset($user_data['Permission'])) {
+				$user_permissions = $user_data['Permission'];
+				foreach($user_permissions as $permission) {
+					if($permission['id'] == $link_data['Link']['permission_id']) {
+						return true;
+					}
 				}
 			}
-			
 			return false;
 		} else {
 			return true;
