@@ -254,6 +254,58 @@ table.forum tr {
 /** --- **/
 
 
+/** News Div **/
+
+div .news {
+	margin-bottom: 20px;
+}
+div .news ul {
+	border-bottom: 1px solid #382e24;
+	border-top: 1px solid #382e24;
+	padding: 5px 2px 5px 2px;
+}
+div .news li {
+	padding-bottom: 2px;
+	padding-top: 2px;
+	margin-left: 20px;
+	list-style-type: square;
+}
+div .news table {
+	border-bottom: 1px solid #382e24;
+	border-top: 1px solid #382e24;
+	padding: 5px 2px 5px 2px;
+}
+
+div .news p.newstop {
+	border-top: 1px solid #382e24;
+	padding: 5px 2px 5px 2px;
+}
+
+div .news p.newsbot {
+	border-bottom: 1px solid #382e24;
+	padding: 5px 2px 5px 2px;
+}
+
+div .news div.left {
+	width: 50%;
+	float: left;
+}
+
+div .news div.right {
+	width: 50%;
+	float: right;
+}
+
+div .news p.actions {
+	text-align: right;
+	border: 0;
+	padding: 5px 2px 5px 2px;
+}
+
+div .news h2 {
+	padding:0;
+}
+
 
 
 /** Headings **/
@@ -323,7 +375,6 @@ div .record h2 {
 }
 
 /** --- **/
-
 
 
 
@@ -515,4 +566,6 @@ div .profile li {
   margin-top: 10px;
   margin-bottom: 10px;
   text-align: left;
+  
 }
+
