@@ -63,7 +63,7 @@ class MenuComponent extends Object {
 			$this->sub_menu = $this->Link->find('all', array('conditions'=>array('Link.link_id'=>'0', 'Link.link_id'=>$parent_item['Link']['id']), 'order'=>array('order'=>'DESC')));
 		} else {
 			//an alias is not set. lets try to find a sub menu based on the controller name.
-			$parent_item = $this->Link->find('first', array('conditions'=>array('Link.link_id'=>'0', 'Link.controller'=>$this->controller->name), 'order'=>array('order'=>'DESC')));
+			$parent_item = $this->Link->find('first', array('conditions'=>array('Link.link_id'=>'0', 'Link.controller'=>$this->controller->name, 'Link.alias'=>''), 'order'=>array('order'=>'DESC')));
 			$this->sub_menu = $this->Link->find('all', array('conditions'=>array('Link.link_id'=>$parent_item['Link']['id']), 'order'=>array('order'=>'DESC')));
 		}
 
