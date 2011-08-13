@@ -21,7 +21,7 @@
                 <div id="side">
                 	<div>
    	             		<h2>Navigation</h2>
-   	             		<?= $this->element('menu', array('root_menu'=>$root_menu)); ?>
+   	             		<?= $menu->getMenuMarkup($root_menu, $sub_menu, $main_menu_id); ?>
    	             	</div>
    	             	
    	             	<div id="activeusers">

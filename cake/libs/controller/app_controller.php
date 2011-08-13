@@ -35,7 +35,7 @@
 class AppController extends Controller {
 
 	var $components = array('Auth', 'RequestHandler', 'Session', 'Permissions', 'Menu');
-	var $helpers = array('Html', 'Session', 'Form', 'Permissions', 'Plural', 'Time', 'Filter', 'Geolocation', 'Chart');
+	var $helpers = array('Html', 'Session', 'Form', 'Permissions', 'Plural', 'Time', 'Filter', 'Geolocation', 'Chart', 'Menu');
 	var $userData;
 	var $activeUsers;
 	var $menuData;
@@ -46,43 +46,10 @@ class AppController extends Controller {
 		
 		$this->Auth->allowedActions = array('*'); //allow access to everything - any security that is needed is done by permissions
 		
-		
-		
-		
-		
+		//get menu
 		$this->Menu->getMainMenu();
 		$this->Menu->getSubMenu();
-		
-		
-		/*
-		//get the menu
-		$this->extraMenuData = array();
-		$this->set('extraMenuData', $this->extraMenuData);
-		
-		$this->loadModel('Link');
-		$this->Link->recursive = 0;
-		$this->menuData = $this->Link->find('all', array('conditions'=>array('Link.link_id'=>'0'), 'order'=>array('Link.order'=>'DESC')));
-		$this->set('menuData', $this->menuData);	
-		
-		//get the child menu
-		foreach($this->menuData as $link) {
-			if(strtolower($link['Link']['controller']) == strtolower($this->name)) { //look for controller on which child menu should be rendered
-				$parentId = $link['Link']['id'];
-				$this->Link->Permission->unbindModel(array('hasAndBelongsToMany'=>array('User')));
-				$this->childMenuData = $this->Link->find('all', array('conditions'=>array('Link.link_id'=>$parentId), 'order'=>array('Link.order'=>'DESC')));
-				if($this->childMenuData)
-					$this->set('childMenuData', $this->childMenuData); //we've found a child menu so send it to the view
-				break;
-			}
-		}
-		*/
-		
-		
-		
-		
-		
-		
-		
+
 		//if the user is logged in send all their relavant info to the view & model
 		//this is easier and just as (or more?) secure as sessions
 		if($this->Auth->User('id')) {

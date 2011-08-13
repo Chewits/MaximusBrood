@@ -4,6 +4,8 @@ class MenuComponent extends Object {
 	var $Link;
 	var $name;
 	var $alias = null;
+	var $sub_menu;
+	var $root_menu;
 	
 	//called before Controller::beforeFilter()
 	function initialize(&$controller, $settings = array()) {
@@ -27,14 +29,14 @@ class MenuComponent extends Object {
 		$newItem = array(
 		'Link'=>array(
 			'title'=>$title,
+			//'controller'=>$target['controller'],
+			//'permission
 			'url'=> $url,
 			'admin'=>$admin
-		),
-		'Permission'=>array());
+		));
 		
-		$arraySize = count($this->controller->extraMenuData);
-		$this->controller->extraMenuData[$arraySize] = $newItem;
-		$this->controller->set('extraMenuData', $this->controller->extraMenuData);
+		$this->sub_menu[] = $newItem;
+		$this->controller->set('sub_menu', $this->sub_menu);
 	}
 	
 	function setAlias($alias_to_set) {
@@ -44,9 +46,9 @@ class MenuComponent extends Object {
 	}
 	
 	function getMainMenu() {
-		$root_menu = $this->Link->find('all', array('conditions'=>array('Link.link_id'=>'0'), 'order'=>array('order'=>'DESC')));
+		$this->root_menu = $this->Link->find('all', array('conditions'=>array('Link.link_id'=>'0'), 'order'=>array('order'=>'DESC')));
 		
-		$this->controller->set('root_menu', $root_menu);
+		$this->controller->set('root_menu', $this->root_menu);
 	}
 	
 	function getSubMenu() {
@@ -58,15 +60,15 @@ class MenuComponent extends Object {
 			echo $this->alias;
 			//have we selected a specific menu based on the alias?			
 			$parent_item = $this->Link->find('first', array('conditions'=>array('Link.link_id'=>'0', 'Link.alias'=>$this->alias), 'order'=>array('order'=>'DESC')));
-			$sub_menu = $this->Link->find('all', array('conditions'=>array('Link.link_id'=>'0', 'Link.link_id'=>$parent_item['Link']['id']), 'order'=>array('order'=>'DESC')));
+			$this->sub_menu = $this->Link->find('all', array('conditions'=>array('Link.link_id'=>'0', 'Link.link_id'=>$parent_item['Link']['id']), 'order'=>array('order'=>'DESC')));
 		} else {
 			//an alias is not set. lets try to find a sub menu based on the controller name.
 			$parent_item = $this->Link->find('first', array('conditions'=>array('Link.link_id'=>'0', 'Link.controller'=>$this->controller->name), 'order'=>array('order'=>'DESC')));
-			$sub_menu = $this->Link->find('all', array('conditions'=>array('Link.link_id'=>$parent_item['Link']['id']), 'order'=>array('order'=>'DESC')));
+			$this->sub_menu = $this->Link->find('all', array('conditions'=>array('Link.link_id'=>$parent_item['Link']['id']), 'order'=>array('order'=>'DESC')));
 		}
 
 		$this->controller->set('main_menu_id', $parent_item['Link']['id']);
-		$this->controller->set('sub_menu', $sub_menu);
+		$this->controller->set('sub_menu', $this->sub_menu);
 	}
 }
 ?>
