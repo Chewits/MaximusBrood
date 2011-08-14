@@ -17,7 +17,6 @@ class MenuComponent extends Object {
 	}
 	
 	function addChild($title, $target, $admin = false) {
-		
 		$url = '';		
 		if(is_array($target)) {
 			foreach($target as $item) {

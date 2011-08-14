@@ -45,7 +45,7 @@ class ArticlesController extends AppController {
 			$this->Article->create();
 			if ($this->Article->save($this->data)) {
 				$this->Session->setFlash(__('The article has been saved', true));
-				$this->redirect(array('action' => 'index'));
+				$this->redirect(array('controller'=>'categories', 'action' => 'view', $this->data['Article']['category_id']));
 			} else {
 				$this->Session->setFlash(__('The article could not be saved. Please, try again.', true));
 			}
@@ -82,6 +82,8 @@ class ArticlesController extends AppController {
 
 	function delete($id = null) {
 		$this->Permissions->lock('Delete Article');
+		
+		
 	
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for article', true));
