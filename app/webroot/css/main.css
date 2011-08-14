@@ -369,6 +369,10 @@ div .record p.actions {
 	text-align: right;
 	border: 0;
 }
+div .page-header p.actions {
+	text-align: right;
+	border: 0;
+}
 
 div .record h2 {
 	padding:0;

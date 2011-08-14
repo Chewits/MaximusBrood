@@ -25,14 +25,13 @@ class MenuHelper extends Helper {
 			}
 		}
 		$menu_markup .= '</ul>';
-		
 		return $menu_markup;
 	}
 	
 	function build_link($link_data) {
 		//first look to see if this is an admin link
 		$css_class = '';
-		if(isset($link_data['Link']['permission_id']) && $link_data['Link']['permission_id'] != 0) 
+		if((isset($link_data['Link']['permission_id']) && $link_data['Link']['permission_id'] != 0) || (isset($link_data['Link']['admin']) && $link_data['Link']['admin'] == '1'))
 			$css_class = 'admin';
 			
 		//then build the URL we want
@@ -42,7 +41,6 @@ class MenuHelper extends Helper {
 		} else {
 			$url = $link_data['Link']['url'];
 		}
-		
 		return $this->Html->link($link_data['Link']['title'], $url, array('class'=>$css_class));
 	}
 	

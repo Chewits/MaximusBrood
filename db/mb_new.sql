@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 13, 2011 at 09:59 PM
+-- Generation Time: Aug 14, 2011 at 04:59 PM
 -- Server version: 5.1.44
 -- PHP Version: 5.2.13
 
@@ -29,24 +29,26 @@ CREATE TABLE `mb_articles` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL,
   `description` text NOT NULL,
+  `url` text NOT NULL,
   `category_id` int(11) NOT NULL,
   `order` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=10 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=11 ;
 
 --
 -- Dumping data for table `mb_articles`
 --
 
-INSERT INTO `mb_articles` VALUES(1, 'Rule one', 'You must respect the authority and decisions of those with a higher rank. Repeated insubordination and disrespect for authority will result in demotion, return to trial level, or expulsion depending on the severity of the case. The hierarchy is an important part of maintaining the clan and you should at all times obey the senior commanders. Asking for a promotion is not allowed. Promotions are awarded for persistent effort in the eyes of the Generals and the Commander. Their decision is final, you should not question it. If you truly do deserve a promotion, you will get one eventually. Asking for one will set you back several weeks.\r\n', 1, 6, 1);
-INSERT INTO `mb_articles` VALUES(4, 'Rule four', 'You must not change your Maximus Brood username or use another without first consulting a Leader. It is preferable that you should not have to change your username at all. Certainly if the reason is just out of personal preference, this will count against you in terms of promotion, because it is confusing to all concerned. To clarify, joining other BW or SC2 clans is strictly forbidden.', 1, 3, 1);
-INSERT INTO `mb_articles` VALUES(5, 'Rule five', 'You must try to play an active role within the clan. Those absent for more than a few weeks without due notice will be sacked. Checking the web site for new information and participation in discussions is mandatory. You should not refuse to play tournament or league games if you have signed yourself up to it. Failure to play your games will mean a demotion if there is not a good reason, or at the very least you will not be looked on favourably for a promotion. If you won''t be able to play in a competition, don''t sign up. ', 1, 2, 1);
-INSERT INTO `mb_articles` VALUES(6, 'Rule six', 'You have to be able to speak and understand English or at least try hard to improve it, so that you can communicate with your follow clanmates, read and understand clan news aswell as being active on the site and it''s forum. Feel free to join even if your English is very bad, but we expect you to do your best on improving it. Ignoring the clan site and forums because you have a hard time understanding it, will not be tolerated.', 1, 1, 1);
-INSERT INTO `mb_articles` VALUES(2, 'Rule two', 'You must never cheat, or use hacks of any kind to distort of unfairly influence the result of a game on battle.net. Failure to comply with this rule will result in demotion for those with medium to high ranks and expulsion for lower ranked members. Loss accounts are also badly frowned upon.', 1, 5, 1);
-INSERT INTO `mb_articles` VALUES(3, 'Rule three', 'You must respect your fellow members and must not seriously abuse other people on battle.net whilst representing the clan without due cause. Making trouble on the site is not allowed. Those found to be deliberately making trouble will be suspended from the site. You must also remember some people have a strange sense of humour. Do not take insults aimed as a joke seriously, and do not repeatedly tell tales on other members.', 1, 4, 1);
-INSERT INTO `mb_articles` VALUES(7, 'Test 234', '5678', 2, 8, 1);
-INSERT INTO `mb_articles` VALUES(8, 'Test567', '234', 2, 7, 1);
+INSERT INTO `mb_articles` VALUES(1, 'Rule one', 'You must respect the authority and decisions of those with a higher rank. Repeated insubordination and disrespect for authority will result in demotion, return to trial level, or expulsion depending on the severity of the case. The hierarchy is an important part of maintaining the clan and you should at all times obey the senior commanders. Asking for a promotion is not allowed. Promotions are awarded for persistent effort in the eyes of the Generals and the Commander. Their decision is final, you should not question it. If you truly do deserve a promotion, you will get one eventually. Asking for one will set you back several weeks.\r\n', '', 1, 6, 1);
+INSERT INTO `mb_articles` VALUES(4, 'Rule four', 'You must not change your Maximus Brood username or use another without first consulting a Leader. It is preferable that you should not have to change your username at all. Certainly if the reason is just out of personal preference, this will count against you in terms of promotion, because it is confusing to all concerned. To clarify, joining other BW or SC2 clans is strictly forbidden.', '', 1, 3, 1);
+INSERT INTO `mb_articles` VALUES(5, 'Rule five', 'You must try to play an active role within the clan. Those absent for more than a few weeks without due notice will be sacked. Checking the web site for new information and participation in discussions is mandatory. You should not refuse to play tournament or league games if you have signed yourself up to it. Failure to play your games will mean a demotion if there is not a good reason, or at the very least you will not be looked on favourably for a promotion. If you won''t be able to play in a competition, don''t sign up. ', '', 1, 2, 1);
+INSERT INTO `mb_articles` VALUES(6, 'Rule six', 'You have to be able to speak and understand English or at least try hard to improve it, so that you can communicate with your follow clanmates, read and understand clan news aswell as being active on the site and it''s forum. Feel free to join even if your English is very bad, but we expect you to do your best on improving it. Ignoring the clan site and forums because you have a hard time understanding it, will not be tolerated.', '', 1, 1, 1);
+INSERT INTO `mb_articles` VALUES(2, 'Rule two', 'You must never cheat, or use hacks of any kind to distort of unfairly influence the result of a game on battle.net. Failure to comply with this rule will result in demotion for those with medium to high ranks and expulsion for lower ranked members. Loss accounts are also badly frowned upon.', '', 1, 5, 1);
+INSERT INTO `mb_articles` VALUES(3, 'Rule three', 'You must respect your fellow members and must not seriously abuse other people on battle.net whilst representing the clan without due cause. Making trouble on the site is not allowed. Those found to be deliberately making trouble will be suspended from the site. You must also remember some people have a strange sense of humour. Do not take insults aimed as a joke seriously, and do not repeatedly tell tales on other members.', '', 1, 4, 1);
+INSERT INTO `mb_articles` VALUES(7, 'Test 234', '5678', '', 2, 10, 1);
+INSERT INTO `mb_articles` VALUES(8, 'Test567', '234', '', 2, 7, 1);
+INSERT INTO `mb_articles` VALUES(10, 'Test', '1234', '', 2, 8, 0);
 
 -- --------------------------------------------------------
 
@@ -86,14 +88,14 @@ CREATE TABLE `mb_categories` (
   `full` tinyint(1) NOT NULL DEFAULT '0',
   `category_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `mb_categories`
 --
 
 INSERT INTO `mb_categories` VALUES(1, 'Rules', 'The rules provide a framework defining what is expected from members, and equally importantly, what is not! You should study these carefully, for staying on the right side of them will serve you well in your time with the clan.', 1, 0);
-INSERT INTO `mb_categories` VALUES(2, 'Test Categories', 'asdfkjghawiulrghvdlksbdosivugbf ', 1, 0);
+INSERT INTO `mb_categories` VALUES(3, 'Links', 'This is a category for links.', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -178,28 +180,28 @@ CREATE TABLE `mb_links` (
   `permission_id` int(11) NOT NULL,
   `link_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=26 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
 
 --
 -- Dumping data for table `mb_links`
 --
 
-INSERT INTO `mb_links` VALUES(3, 19, 'Add User', '', 'users', '', 'add', '', 26, 6);
-INSERT INTO `mb_links` VALUES(6, 20, 'Members', '', 'users', '', 'index', '', 0, 0);
-INSERT INTO `mb_links` VALUES(4, 16, 'Ranks', '', 'ranks', '', 'index', '', 0, 0);
+INSERT INTO `mb_links` VALUES(3, 21, 'Add User', '', 'users', '', 'add', '', 26, 6);
+INSERT INTO `mb_links` VALUES(6, 22, 'Members', '', 'users', '', 'index', '', 0, 0);
+INSERT INTO `mb_links` VALUES(4, 18, 'Ranks', '', 'ranks', '', 'index', '', 0, 0);
 INSERT INTO `mb_links` VALUES(5, 3, 'Log', '', 'logs', '', 'index', '', 1, 0);
-INSERT INTO `mb_links` VALUES(16, 18, 'View Guests', '', 'users', '', 'show/guest', '', 0, 6);
-INSERT INTO `mb_links` VALUES(7, 13, 'Add Rank', '', 'ranks', '', 'add', '', 23, 4);
-INSERT INTO `mb_links` VALUES(22, 17, 'Ex-members', '', 'users', '', 'exmembers', '', 0, 6);
-INSERT INTO `mb_links` VALUES(10, 7, 'Add Link', '', 'links', '', 'add', '', 14, 9);
-INSERT INTO `mb_links` VALUES(19, 24, 'News', '', 'news', '', '', '', 0, 0);
-INSERT INTO `mb_links` VALUES(17, 22, 'Forum', '', 'forum', '', 'index', '', 0, 0);
-INSERT INTO `mb_links` VALUES(18, 21, 'New Thread', '', 'forum', '', 'add', '', 19, 17);
-INSERT INTO `mb_links` VALUES(20, 23, 'Add News', '', 'news', '', 'add', '', 40, 19);
-INSERT INTO `mb_links` VALUES(21, 10, 'Rules', '', 'articles', 'rules', 'view/1', '', 0, 0);
-INSERT INTO `mb_links` VALUES(23, 12, 'Ex-member Ranks', '', 'ranks', '', 'exmembers', '', 0, 4);
-INSERT INTO `mb_links` VALUES(24, 4, 'Pages', '', 'articles', '', 'summary', '', 2, 0);
-INSERT INTO `mb_links` VALUES(25, 25, 'Add Category', '', 'articles', '', 'addcategory', '', 8, 24);
+INSERT INTO `mb_links` VALUES(16, 20, 'View Guests', '', 'users', '', 'show/guest', '', 0, 6);
+INSERT INTO `mb_links` VALUES(7, 17, 'Add Rank', '', 'ranks', '', 'add', '', 23, 4);
+INSERT INTO `mb_links` VALUES(22, 19, 'Ex-members', '', 'users', '', 'exmembers', '', 0, 6);
+INSERT INTO `mb_links` VALUES(10, 10, 'Add Link', '', 'links', '', 'add', '', 14, 9);
+INSERT INTO `mb_links` VALUES(19, 26, 'News', '', 'news', '', '', '', 0, 0);
+INSERT INTO `mb_links` VALUES(17, 24, 'Forum', '', 'forum', '', 'index', '', 0, 0);
+INSERT INTO `mb_links` VALUES(18, 23, 'New Thread', '', 'forum', '', 'add', '', 19, 17);
+INSERT INTO `mb_links` VALUES(20, 25, 'Add News', '', 'news', '', 'add', '', 40, 19);
+INSERT INTO `mb_links` VALUES(21, 16, 'Rules', '', 'articles', 'rules', 'view/1', '', 0, 0);
+INSERT INTO `mb_links` VALUES(24, 7, 'Pages', '', 'categories', '', '/', '', 2, 0);
+INSERT INTO `mb_links` VALUES(26, 13, 'Links', '', 'categories', '', 'view/3', '', 0, 0);
+INSERT INTO `mb_links` VALUES(25, 4, 'Add Category', '', 'categories', '', 'add', '', 8, 24);
 
 -- --------------------------------------------------------
 
@@ -218,7 +220,7 @@ CREATE TABLE `mb_logs` (
   `user_id` int(11) NOT NULL,
   `additional_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2651 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3051 ;
 
 --
 -- Dumping data for table `mb_logs`
@@ -2839,6 +2841,406 @@ INSERT INTO `mb_logs` VALUES(2647, 'View', '/maximusbrood/articles/summary', '',
 INSERT INTO `mb_logs` VALUES(2648, 'View', '/maximusbrood/articles/summary', '', '2011-08-13 21:56:50', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
 INSERT INTO `mb_logs` VALUES(2649, 'View', '/maximusbrood/articles/summary', '', '2011-08-13 21:56:51', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
 INSERT INTO `mb_logs` VALUES(2650, 'View', '/maximusbrood/articles/summary', '', '2011-08-13 21:56:58', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2651, 'View', '/maximusbrood/members/index', '', '2011-08-13 22:09:29', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2652, 'View', '/maximusbrood/members/show/guest', '', '2011-08-13 22:09:32', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2653, 'View', '/maximusbrood/members/exmembers', '', '2011-08-13 22:09:34', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2654, 'View', '/maximusbrood/members/show/Legends', '', '2011-08-13 22:09:35', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2655, 'View', '/maximusbrood/members/show/Ex-Members', '', '2011-08-13 22:09:37', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2656, 'View', '/maximusbrood/members/show/Wash Outs', '', '2011-08-13 22:09:39', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2657, 'View', '/maximusbrood/ranks', '', '2011-08-13 22:09:48', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2658, 'View', '/maximusbrood/ranks', '', '2011-08-13 22:16:05', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2659, 'View', '/maximusbrood/members/logout', '', '2011-08-13 22:16:08', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2660, 'View', '/maximusbrood/ranks', '', '2011-08-13 22:37:32', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2661, 'View', '/maximusbrood/members/index', '', '2011-08-13 22:37:40', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2662, 'View', '/maximusbrood/members/add', '', '2011-08-13 22:37:43', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2663, 'View', '/maximusbrood/ranks', '', '2011-08-13 22:37:46', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2664, 'View', '/maximusbrood/ranks/view/17', '', '2011-08-13 22:37:50', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2665, 'View', '/maximusbrood/members/index', '', '2011-08-13 22:39:53', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2666, 'View', '/maximusbrood/ranks', '', '2011-08-13 22:39:56', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2667, 'View', '/maximusbrood/forum', '', '2011-08-13 22:39:58', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2668, 'View', '/maximusbrood/forum/view/74', '', '2011-08-13 22:40:03', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2669, 'View', '/maximusbrood/forum/view/39', '', '2011-08-13 22:40:09', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2670, 'View', '/maximusbrood/forum/view/39', '', '2011-08-13 22:42:17', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2671, 'View', '/maximusbrood/members/view/1', '', '2011-08-13 22:49:36', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2672, 'View', '/maximusbrood/members/edit/1', '', '2011-08-13 22:49:39', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2673, 'View', '/maximusbrood/ranks', '', '2011-08-13 22:50:54', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2674, 'View', '/maximusbrood/ranks/delete/4', '', '2011-08-13 22:50:57', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2675, 'View', '/maximusbrood/ranks/delete/4', '', '2011-08-13 22:51:39', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2676, 'View', '/maximusbrood/ranks/delete/4', '', '2011-08-13 22:51:41', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2677, 'View', '/maximusbrood/ranks/delete/4', '', '2011-08-13 22:52:04', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2678, 'View', '/maximusbrood/ranks', '', '2011-08-13 22:52:07', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2679, 'View', '/maximusbrood/ranks/delete/4', '', '2011-08-13 22:52:11', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2680, 'View', '/maximusbrood/ranks', '', '2011-08-13 22:52:27', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2681, 'View', '/maximusbrood/ranks/delete/6', '', '2011-08-13 22:52:29', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2682, 'View', '/maximusbrood/ranks/delete/4', '', '2011-08-13 22:52:36', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2683, 'View', '/maximusbrood/members/index', '', '2011-08-13 22:54:22', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2684, 'View', '/maximusbrood/members/view/2', '', '2011-08-13 22:54:24', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2685, 'View', '/maximusbrood/ranks/view/4', '', '2011-08-13 22:54:25', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2686, 'View', '/maximusbrood/ranks/delete/4', '', '2011-08-13 22:54:58', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2687, 'View', '/maximusbrood/ranks/view/4', '', '2011-08-13 22:54:58', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2688, 'View', '/maximusbrood/ranks/view/4', '', '2011-08-13 22:55:13', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2689, 'View', '/maximusbrood/ranks/delete/4', '', '2011-08-13 22:55:18', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2690, 'View', '/maximusbrood/ranks/view/4', '', '2011-08-13 22:55:18', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2691, 'View', '/maximusbrood/ranks', '', '2011-08-13 22:55:25', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2692, 'View', '/maximusbrood/ranks', '', '2011-08-13 22:56:40', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2693, 'View', '/maximusbrood/members/index', '', '2011-08-13 22:56:42', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2694, 'View', '/maximusbrood/members/exmembers', '', '2011-08-13 23:02:17', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2695, 'View', '/maximusbrood/members/index', '', '2011-08-13 23:06:52', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2696, 'View', '/maximusbrood/articles/summary', '', '2011-08-13 23:08:59', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2697, 'View', '/maximusbrood/articles/view/1', '', '2011-08-13 23:11:00', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2698, 'View', '/maximusbrood/articles/view/1', '', '2011-08-13 23:11:14', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2699, 'View', '/maximusbrood/articles/summary', '', '2011-08-13 23:11:33', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2700, 'View', '/maximusbrood/articles/summary', '', '2011-08-13 23:14:06', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2701, 'View', '/maximusbrood/articles/summary', '', '2011-08-13 23:17:10', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2702, 'View', '/maximusbrood/articles/summary', '', '2011-08-13 23:17:37', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2703, 'View', '/maximusbrood/articles/summary', '', '2011-08-13 23:18:33', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2704, 'View', '/maximusbrood/articles/summary', '', '2011-08-13 23:20:41', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2705, 'View', '/maximusbrood/articles/summary', '', '2011-08-13 23:20:47', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2706, 'View', '/maximusbrood/articles/summary', '', '2011-08-13 23:20:55', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2707, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:20:58', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2708, 'View', '/maximusbrood/links', '', '2011-08-13 23:21:31', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2709, 'View', '/maximusbrood/links/edit/24', '', '2011-08-13 23:21:34', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2710, 'Link', 'Edit', '', '2011-08-13 23:21:41', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2711, 'View', '/maximusbrood/links', '', '2011-08-13 23:21:41', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2712, 'View', '/maximusbrood/articles/summary', '', '2011-08-13 23:21:45', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2713, 'View', '/maximusbrood/links/edit/24', '', '2011-08-13 23:21:49', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2714, 'Link', 'Edit', '', '2011-08-13 23:21:55', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2715, 'View', '/maximusbrood/links', '', '2011-08-13 23:21:55', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2716, 'View', '/maximusbrood/articles/summary', '', '2011-08-13 23:21:57', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2717, 'View', '/maximusbrood/categories', '', '2011-08-13 23:23:05', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2718, 'View', '/maximusbrood/categories', '', '2011-08-13 23:23:41', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2719, 'View', '/maximusbrood/categories', '', '2011-08-13 23:23:42', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2720, 'View', '/maximusbrood/categories', '', '2011-08-13 23:23:56', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2721, 'View', '/maximusbrood/categories', '', '2011-08-13 23:24:57', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2722, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:25:29', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2723, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:29:01', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2724, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:29:11', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2725, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:30:37', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2726, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:31:47', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2727, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:39:12', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2728, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:39:14', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2729, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:39:15', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2730, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:39:16', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2731, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:39:16', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2732, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:39:17', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2733, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:39:17', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2734, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:39:17', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2735, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:40:49', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2736, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:42:04', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2737, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:42:17', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2738, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:44:48', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2739, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:44:56', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2740, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:45:10', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2741, 'View', '/maximusbrood/articles/summary', '', '2011-08-13 23:46:49', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2742, 'View', '/maximusbrood/categories/', '', '2011-08-13 23:46:57', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2743, 'View', '/maximusbrood/articles/summary', '', '2011-08-13 23:46:59', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2744, 'View', '/maximusbrood/links', '', '2011-08-13 23:47:08', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2745, 'View', '/maximusbrood/links/edit/24', '', '2011-08-13 23:47:17', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2746, 'Link', 'Edit', '', '2011-08-13 23:47:31', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2747, 'View', '/maximusbrood/links', '', '2011-08-13 23:47:31', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2748, 'View', '/maximusbrood/categories', '', '2011-08-13 23:47:36', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2749, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:47:41', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2750, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:51:38', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2751, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:51:44', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2752, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:52:05', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2753, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:52:12', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2754, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:52:23', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2755, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:52:43', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2756, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:53:06', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2757, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:53:15', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2758, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:53:38', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2759, 'View', '/maximusbrood/categories/view/1', '', '2011-08-13 23:53:43', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2760, 'View', '/maximusbrood/articles/view/1', '', '2011-08-13 23:56:13', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2761, 'View', '/maximusbrood/categories', '', '2011-08-13 23:56:21', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2762, 'View', '/maximusbrood/', '', '2011-08-14 10:14:11', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2763, 'View', '/maximusbrood/forum', '', '2011-08-14 10:14:14', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2764, 'View', '/maximusbrood/categories', '', '2011-08-14 10:14:19', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2765, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:14:29', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2766, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:17:07', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2767, 'View', '/maximusbrood/links', '', '2011-08-14 10:17:21', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2768, 'View', '/maximusbrood/links/add', '', '2011-08-14 10:17:27', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2769, 'View', '/maximusbrood/ranks', '', '2011-08-14 10:30:11', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2770, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:30:13', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2771, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:30:23', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2772, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:30:26', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2773, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:30:27', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2774, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:30:46', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2775, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:30:58', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2776, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:31:04', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2777, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:32:11', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2778, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:32:20', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2779, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:34:04', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2780, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:34:06', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2781, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:34:34', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2782, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:34:40', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2783, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:34:48', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2784, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:47:00', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2785, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:47:19', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2786, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:47:19', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2787, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:48:01', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2788, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:48:02', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2789, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:50:38', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2790, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:51:01', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2791, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:51:55', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2792, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:53:47', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2793, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:53:47', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2794, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:54:14', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2795, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:54:25', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2796, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:54:51', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2797, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:54:52', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2798, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:55:14', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2799, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:55:49', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2800, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:55:55', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2801, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:56:14', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2802, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:56:20', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2803, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:56:33', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2804, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:56:34', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2805, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:57:12', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2806, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 10:57:33', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2807, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 11:00:20', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2808, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 11:00:37', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2809, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 11:01:36', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2810, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 11:14:18', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2811, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 11:14:24', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2812, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 11:14:25', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2813, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 11:14:59', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2814, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 11:15:46', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2815, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 11:15:53', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2816, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 11:16:16', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2817, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 11:16:17', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2818, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 11:17:05', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2819, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 11:17:06', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2820, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 11:17:45', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2821, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 11:18:09', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2822, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 11:18:11', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2823, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 11:18:23', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2824, 'View', '/maximusbrood/members/view/1', '', '2011-08-14 11:18:56', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2825, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 11:20:05', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2826, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 11:21:14', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2827, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 11:21:23', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2828, 'View', '/maximusbrood/members/promote/false', '', '2011-08-14 11:21:32', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2829, 'View', '/maximusbrood/members/index', '', '2011-08-14 11:21:39', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2830, 'View', '/maximusbrood/members/index', '', '2011-08-14 11:21:45', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2831, 'View', '/maximusbrood/forum', '', '2011-08-14 11:21:47', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2832, 'View', '/maximusbrood/forum/view/39', '', '2011-08-14 11:21:49', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2833, 'View', '/maximusbrood/categories', '', '2011-08-14 11:22:49', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2834, 'View', '/maximusbrood/categories', '', '2011-08-14 11:23:30', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2835, 'View', '/maximusbrood/categories', '', '2011-08-14 11:23:38', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2836, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 11:23:42', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2837, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 11:24:02', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2838, 'View', '/maximusbrood/forum', '', '2011-08-14 11:24:35', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2839, 'View', '/maximusbrood/', '', '2011-08-14 11:24:39', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2840, 'View', '/maximusbrood/news/add', '', '2011-08-14 11:24:44', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2841, 'View', '/maximusbrood/members/view/1', '', '2011-08-14 11:24:59', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2842, 'View', '/maximusbrood/', '', '2011-08-14 11:25:07', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2843, 'View', '/maximusbrood/', '', '2011-08-14 11:25:17', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2844, 'View', '/maximusbrood/logs', '', '2011-08-14 11:25:20', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2845, 'View', '/maximusbrood/news/add', '', '2011-08-14 11:29:05', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2846, 'News', 'Add', '', '2011-08-14 11:29:17', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 76);
+INSERT INTO `mb_logs` VALUES(2847, 'View', '/maximusbrood/', '', '2011-08-14 11:29:17', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2848, 'View', '/maximusbrood/forum', '', '2011-08-14 11:31:42', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2849, 'View', '/maximusbrood/categories', '', '2011-08-14 12:18:48', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2850, 'View', '/maximusbrood/categories', '', '2011-08-14 12:22:02', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2851, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 12:22:17', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2852, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 12:22:30', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2853, 'View', '/maximusbrood/links', '', '2011-08-14 15:00:00', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2854, 'View', '/maximusbrood/links/edit/24', '', '2011-08-14 15:00:06', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2855, 'Link', 'Edit', '', '2011-08-14 15:00:13', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2856, 'View', '/maximusbrood/links', '', '2011-08-14 15:00:13', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2857, 'View', '/maximusbrood/categories', '', '2011-08-14 15:00:21', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2858, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:00:25', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2859, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 15:00:29', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2860, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:00:30', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2861, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 15:00:37', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2862, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:00:37', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2863, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 15:00:44', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2864, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:00:44', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2865, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:06:10', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2866, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:06:23', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2867, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:15:53', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2868, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:16:20', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2869, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:16:56', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2870, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:17:30', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2871, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:17:31', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2872, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:19:20', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2873, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:19:40', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2874, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:20:16', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2875, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:20:23', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2876, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:21:39', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2877, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:24:29', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2878, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:24:31', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2879, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:24:32', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2880, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:24:33', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2881, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:25:01', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2882, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:25:02', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2883, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:25:02', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2884, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:31:32', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2885, 'View', '/maximusbrood/categories/view', '', '2011-08-14 15:31:44', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2886, 'View', '/maximusbrood/categories/view', '', '2011-08-14 15:31:45', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2887, 'View', '/maximusbrood/categories/view', '', '2011-08-14 15:31:49', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2888, 'View', '/maximusbrood/categories/view', '', '2011-08-14 15:31:52', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2889, 'View', '/maximusbrood/categories/links', '', '2011-08-14 15:32:09', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2890, 'View', '/maximusbrood/links', '', '2011-08-14 15:32:12', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2891, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 15:32:31', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2892, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:32:31', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2893, 'View', '/maximusbrood/categories/view', '', '2011-08-14 15:32:41', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2894, 'View', '/maximusbrood/links/edit/24', '', '2011-08-14 15:32:49', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2895, 'Link', 'Edit', '', '2011-08-14 15:32:54', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2896, 'View', '/maximusbrood/links', '', '2011-08-14 15:32:54', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2897, 'View', '/maximusbrood/categories', '', '2011-08-14 15:33:17', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2898, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:33:34', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2899, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 15:33:37', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2900, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:33:37', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2901, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:35:08', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2902, 'View', '/maximusbrood/categories', '', '2011-08-14 15:35:11', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2903, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:35:14', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2904, 'View', '/maximusbrood/categories', '', '2011-08-14 15:35:15', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2905, 'View', '/maximusbrood/categories/view/2', '', '2011-08-14 15:35:16', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2906, 'View', '/maximusbrood/categories', '', '2011-08-14 15:35:18', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2907, 'View', '/maximusbrood/categories/view/2', '', '2011-08-14 15:39:51', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2908, 'View', '/maximusbrood/categories/view/2', '', '2011-08-14 15:40:20', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2909, 'View', '/maximusbrood/categories/movedown/7', '', '2011-08-14 15:40:27', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2910, 'View', '/maximusbrood/members/login', '', '2011-08-14 15:40:31', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2911, 'View', '/maximusbrood/', '', '2011-08-14 15:40:32', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2912, 'View', '/maximusbrood/categories', '', '2011-08-14 15:40:35', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2913, 'View', '/maximusbrood/categories/view/2', '', '2011-08-14 15:40:36', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2914, 'View', '/maximusbrood/categories/movedown/7', '', '2011-08-14 15:40:38', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2915, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 15:47:09', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2916, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:47:09', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2917, 'View', '/maximusbrood/members/promote/false', '', '2011-08-14 15:47:11', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2918, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:50:41', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2919, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:50:46', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2920, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:50:47', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2921, 'Article', 'Move down', '', '2011-08-14 15:50:50', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2922, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:50:50', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2923, 'Article', 'Move up', '', '2011-08-14 15:50:52', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2924, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:50:52', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2925, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 15:58:58', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2926, 'View', '/maximusbrood/articles/add/1', '', '2011-08-14 15:59:01', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2927, 'View', '/maximusbrood/forum', '', '2011-08-14 16:02:59', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2928, 'View', '/maximusbrood/forum/add', '', '2011-08-14 16:03:02', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2929, 'View', '/maximusbrood/articles/add/1', '', '2011-08-14 16:04:31', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2930, 'View', '/maximusbrood/articles/add/1', '', '2011-08-14 16:04:37', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2931, 'View', '/maximusbrood/articles/add/1', '', '2011-08-14 16:09:31', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2932, 'View', '/maximusbrood/articles/add/1', '', '2011-08-14 16:17:19', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2933, 'View', '/maximusbrood/categories', '', '2011-08-14 16:17:22', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2934, 'View', '/maximusbrood/categories/view/2', '', '2011-08-14 16:17:23', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2935, 'View', '/maximusbrood/articles/add/2', '', '2011-08-14 16:17:29', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2936, 'View', '/maximusbrood/articles/add/2', '', '2011-08-14 16:18:08', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2937, 'View', '/maximusbrood/articles/add/2', '', '2011-08-14 16:22:33', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2938, 'Article', 'Edit', '', '2011-08-14 16:22:40', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2939, 'View', '/maximusbrood/articles', '', '2011-08-14 16:22:40', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2940, 'View', '/maximusbrood/categories', '', '2011-08-14 16:22:43', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2941, 'View', '/maximusbrood/categories/view/2', '', '2011-08-14 16:22:45', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2942, 'View', '/maximusbrood/articles/add/2', '', '2011-08-14 16:27:16', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2943, 'View', '/maximusbrood/categories', '', '2011-08-14 16:27:19', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2944, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 16:27:24', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2945, 'View', '/maximusbrood/articles/edit/1', '', '2011-08-14 16:27:26', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2946, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 16:28:18', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2947, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 16:28:23', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2948, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 16:28:23', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2949, 'View', '/maximusbrood/categories', '', '2011-08-14 16:28:26', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2950, 'View', '/maximusbrood/categories/view/2', '', '2011-08-14 16:28:29', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2951, 'Article', 'Move down', '', '2011-08-14 16:28:32', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2952, 'View', '/maximusbrood/categories/view/2', '', '2011-08-14 16:28:32', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2953, 'View', '/maximusbrood/articles/moveup/7', '', '2011-08-14 16:28:34', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2954, 'View', '/maximusbrood/categories/view/2', '', '2011-08-14 16:28:34', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2955, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 16:28:39', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2956, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 16:28:39', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2957, 'View', '/maximusbrood/articles/add/1', '', '2011-08-14 16:28:40', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2958, 'View', '/maximusbrood/articles/edit/1', '', '2011-08-14 16:45:28', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2959, 'Article', 'Edit', '', '2011-08-14 16:45:30', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2960, 'View', '/maximusbrood/articles/view/1', '', '2011-08-14 16:45:30', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2961, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 16:45:30', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2962, 'View', '/maximusbrood/categories', '', '2011-08-14 16:45:34', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2963, 'View', '/maximusbrood/categories/view/2', '', '2011-08-14 16:45:35', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2964, 'View', '/maximusbrood/categories', '', '2011-08-14 16:45:46', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2965, 'View', '/maximusbrood/articles/addcategory', '', '2011-08-14 16:45:47', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2966, 'View', '/maximusbrood/links/', '', '2011-08-14 16:46:11', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2967, 'View', '/maximusbrood/categories', '', '2011-08-14 16:50:04', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2968, 'View', '/maximusbrood/links/edit/25', '', '2011-08-14 16:50:22', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2969, 'Link', 'Edit', '', '2011-08-14 16:50:30', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2970, 'View', '/maximusbrood/links', '', '2011-08-14 16:50:30', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2971, 'Link', 'Move down', '', '2011-08-14 16:50:37', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2972, 'View', '/maximusbrood/links', '', '2011-08-14 16:50:37', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2973, 'Link', 'Move down', '', '2011-08-14 16:50:38', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2974, 'View', '/maximusbrood/links', '', '2011-08-14 16:50:38', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2975, 'Link', 'Move down', '', '2011-08-14 16:50:39', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2976, 'View', '/maximusbrood/links', '', '2011-08-14 16:50:39', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2977, 'Link', 'Move down', '', '2011-08-14 16:50:40', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2978, 'View', '/maximusbrood/links', '', '2011-08-14 16:50:40', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2979, 'Link', 'Move down', '', '2011-08-14 16:50:41', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2980, 'View', '/maximusbrood/links', '', '2011-08-14 16:50:41', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2981, 'Link', 'Move down', '', '2011-08-14 16:50:42', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2982, 'View', '/maximusbrood/links', '', '2011-08-14 16:50:42', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2983, 'Link', 'Move down', '', '2011-08-14 16:50:50', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2984, 'View', '/maximusbrood/links', '', '2011-08-14 16:50:50', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2985, 'Link', 'Move down', '', '2011-08-14 16:50:52', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2986, 'View', '/maximusbrood/links', '', '2011-08-14 16:50:52', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2987, 'Link', 'Move up', '', '2011-08-14 16:50:55', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2988, 'View', '/maximusbrood/links', '', '2011-08-14 16:50:55', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2989, 'Link', 'Move down', '', '2011-08-14 16:51:01', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2990, 'View', '/maximusbrood/links', '', '2011-08-14 16:51:01', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2991, 'Link', 'Move down', '', '2011-08-14 16:51:02', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2992, 'View', '/maximusbrood/links', '', '2011-08-14 16:51:02', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2993, 'Link', 'Move down', '', '2011-08-14 16:51:03', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2994, 'View', '/maximusbrood/links', '', '2011-08-14 16:51:03', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2995, 'Link', 'Move down', '', '2011-08-14 16:51:04', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2996, 'View', '/maximusbrood/links', '', '2011-08-14 16:51:04', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2997, 'Link', 'Move down', '', '2011-08-14 16:51:05', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2998, 'View', '/maximusbrood/links', '', '2011-08-14 16:51:05', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(2999, 'Link', 'Move down', '', '2011-08-14 16:51:10', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3000, 'View', '/maximusbrood/links', '', '2011-08-14 16:51:10', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3001, 'View', '/maximusbrood/categories', '', '2011-08-14 16:51:17', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3002, 'View', '/maximusbrood/categories/add', '', '2011-08-14 16:51:18', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3003, 'View', '/maximusbrood/categories/add', '', '2011-08-14 16:51:55', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3004, 'View', '/maximusbrood/categories/add', '', '2011-08-14 16:52:14', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3005, 'View', '/maximusbrood/categories/add', '', '2011-08-14 16:52:30', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3006, 'Category', 'Add', '', '2011-08-14 16:52:39', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3007, 'View', '/maximusbrood/categories', '', '2011-08-14 16:52:39', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3008, 'View', '/maximusbrood/categories/view/3', '', '2011-08-14 16:52:42', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3009, 'View', '/maximusbrood/articles/add/3', '', '2011-08-14 16:52:51', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3010, 'View', '/maximusbrood/categories', '', '2011-08-14 16:52:54', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3011, 'View', '/maximusbrood/categories', '', '2011-08-14 16:53:43', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3012, 'View', '/maximusbrood/categories', '', '2011-08-14 16:55:25', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3013, 'View', '/maximusbrood/categories', '', '2011-08-14 16:55:48', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3014, 'View', '/maximusbrood/categories', '', '2011-08-14 16:56:17', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3015, 'View', '/maximusbrood/categories/edit/1', '', '2011-08-14 16:56:21', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3016, 'View', '/maximusbrood/categories/edit/1', '', '2011-08-14 16:56:42', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3017, 'View', '/maximusbrood/categories', '', '2011-08-14 16:56:47', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3018, 'Category', 'Delete', '', '2011-08-14 16:56:51', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3019, 'View', '/maximusbrood/categories', '', '2011-08-14 16:56:51', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3020, 'View', '/maximusbrood/categories/view/1', '', '2011-08-14 16:57:09', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3021, 'View', '/maximusbrood/categories', '', '2011-08-14 16:57:17', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3022, 'View', '/maximusbrood/categories/view/3', '', '2011-08-14 16:57:20', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3023, 'View', '/maximusbrood/links', '', '2011-08-14 16:57:27', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3024, 'View', '/maximusbrood/links/add', '', '2011-08-14 16:57:32', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3025, 'Link', 'Edit', '', '2011-08-14 16:58:09', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3026, 'View', '/maximusbrood/links', '', '2011-08-14 16:58:09', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3027, 'Link', 'Move down', '', '2011-08-14 16:58:20', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3028, 'View', '/maximusbrood/links', '', '2011-08-14 16:58:20', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3029, 'Link', 'Move down', '', '2011-08-14 16:58:22', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3030, 'View', '/maximusbrood/links', '', '2011-08-14 16:58:22', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3031, 'Link', 'Move down', '', '2011-08-14 16:58:23', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3032, 'View', '/maximusbrood/links', '', '2011-08-14 16:58:23', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3033, 'Link', 'Move down', '', '2011-08-14 16:58:24', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3034, 'View', '/maximusbrood/links', '', '2011-08-14 16:58:24', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3035, 'Link', 'Move down', '', '2011-08-14 16:58:26', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3036, 'View', '/maximusbrood/links', '', '2011-08-14 16:58:26', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3037, 'Link', 'Move down', '', '2011-08-14 16:58:27', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3038, 'View', '/maximusbrood/links', '', '2011-08-14 16:58:27', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3039, 'Link', 'Move down', '', '2011-08-14 16:58:29', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3040, 'View', '/maximusbrood/links', '', '2011-08-14 16:58:29', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3041, 'Link', 'Move down', '', '2011-08-14 16:58:30', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3042, 'View', '/maximusbrood/links', '', '2011-08-14 16:58:30', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3043, 'Link', 'Move down', '', '2011-08-14 16:58:31', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3044, 'View', '/maximusbrood/links', '', '2011-08-14 16:58:31', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3045, 'Link', 'Move down', '', '2011-08-14 16:58:32', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3046, 'View', '/maximusbrood/links', '', '2011-08-14 16:58:32', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3047, 'Link', 'Move down', '', '2011-08-14 16:58:37', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3048, 'View', '/maximusbrood/links', '', '2011-08-14 16:58:37', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3049, 'View', '/maximusbrood/categories/view/3', '', '2011-08-14 16:58:40', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3050, 'View', '/maximusbrood/articles/add/3', '', '2011-08-14 16:58:42', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -3041,7 +3443,7 @@ CREATE TABLE `mb_posts` (
   `locked` tinyint(1) NOT NULL,
   `stuck` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=76 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=77 ;
 
 --
 -- Dumping data for table `mb_posts`
@@ -3090,6 +3492,7 @@ INSERT INTO `mb_posts` VALUES(65, '', 'test', '2011-08-10 21:07:43', '0000-00-00
 INSERT INTO `mb_posts` VALUES(66, '', 'test', '2011-08-10 22:03:39', '0000-00-00 00:00:00', 0, 39, 6, 0, 0, 0);
 INSERT INTO `mb_posts` VALUES(70, '', '[IMG][IMG][EMAIL=][/EMAIL]', '2011-08-10 22:36:47', '0000-00-00 00:00:00', 0, 39, 6, 0, 0, 0);
 INSERT INTO `mb_posts` VALUES(74, 'news test rename', 'bbcode test\r\n\r\n[COLOR=#008000]why are you putting lines here[/COLOR]', '2011-08-10 22:48:27', '2011-08-10 22:48:27', 6, 0, 6, 5, 0, 0);
+INSERT INTO `mb_posts` VALUES(76, 'JB loves cake', '[youtube]http://www.youtube.com/watch?v=pQMAyZs5w8I&feature=related[/youtube]', '2011-08-14 11:29:16', '2011-08-14 11:29:16', 1, 0, 1, 5, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -3187,7 +3590,7 @@ CREATE TABLE `mb_users` (
 -- Dumping data for table `mb_users`
 --
 
-INSERT INTO `mb_users` VALUES(1, 'Finn', 'd019471679ac7a9af5a536ac6c6b13f245832dc2', 20, 5);
+INSERT INTO `mb_users` VALUES(1, 'Finn', 'd019471679ac7a9af5a536ac6c6b13f245832dc2', 21, 5);
 INSERT INTO `mb_users` VALUES(2, 'Test', '88155109a8bb9f21f05c35991c41c70823d21f5a', 0, 4);
 INSERT INTO `mb_users` VALUES(3, 'TestGuest', '13f67e1192bbfe5d1c06d688be40e036a4110ff0', 0, 7);
 INSERT INTO `mb_users` VALUES(4, 'Perm', '13f67e1192bbfe5d1c06d688be40e036a4110ff0', 0, 7);

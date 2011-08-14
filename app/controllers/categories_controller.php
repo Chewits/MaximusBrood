@@ -4,16 +4,17 @@ class CategoriesController extends AppController {
 	var $name = 'Categories';
 
 	function index() {
-		$this->Category->recursive = 0;
-		$this->set('categories', $this->paginate());
+		//We are retrieving parent categories only, so we can unbind the parent category property.
+		$this->Category->unbindModel(array('belongsTo'=>array('ParentCategory')));
+		$this->set('categories', $this->Category->find('all', array('conditions'=>array('Category.category_id'=>0))));
 	}
 
-	function view($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid category', true));
-			$this->redirect(array('action' => 'index'));
-		}
-		$this->set('category', $this->Category->read(null, $id));
+	function view($id = null) {		
+		//get relevant page data
+		$category = $this->Category->find('first', array('conditions'=>array('Category.id'=>$id)));
+		$this->Menu->setAlias(strtolower($category['Category']['title']));
+		$this->Menu->addChild('Add '.Inflector::singularize($category['Category']['title']), array('controller'=>'articles', 'action'=>'add', $category['Category']['id']), true); //add the reply link to the menu	
+		$this->set('category', $category);
 	}
 
 	function add() {
@@ -28,7 +29,6 @@ class CategoriesController extends AppController {
 				$this->Session->setFlash(__('The category could not be saved. Please, try again.', true));
 			}
 		}
-		$categories = $this->Category->Category->find('list');
 		$this->set(compact('categories'));
 	}
 
@@ -50,7 +50,6 @@ class CategoriesController extends AppController {
 		if (empty($this->data)) {
 			$this->data = $this->Category->read(null, $id);
 		}
-		$categories = $this->Category->Category->find('list');
 		$this->set(compact('categories'));
 	}
 

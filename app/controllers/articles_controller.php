@@ -9,8 +9,6 @@ class ArticlesController extends AppController {
 	}
 
 	function view($id) {
-		
-	
 		if (!$id) {
 			$this->Session->setFlash('That article does not exist!', 'default', array('class'=>'error-message'));
 			$this->redirect(array('action' => 'index'));
@@ -22,21 +20,28 @@ class ArticlesController extends AppController {
 		
 		$this->set('article', $article);
 		
+				
 		//check to see if this article is one record in a bigger 
 		//article... ie. rules and change the view accordingly
+		//TODO: maybe pass this on to the category page?
 		if($article['Category']['full'] == true) {
+			$this->redirect(array('controller'=>'categories', 'action'=>'view', $category['Category']['id']));
+			
 			$this->Menu->setAlias(strtolower($article['Category']['title']));
+			$this->Menu->addChild('Add '.Inflector::singularize($category['Category']['title']), array('controller'=>'members', 'action'=>'promote', 'false'), true); //add the reply link to the menu	
 			$this->set('category', $category);
-			$this->render('viewcategoryfull');
+			$this->render('viewcategory');
 		} else {
 			$this->Menu->setAlias(strtolower($article['Article']['title']));
 		}
 	}
 
-	function add() {
+	function add($id = null) {
 		$this->Permissions->lock('Add Article');
 	
 		if (!empty($this->data)) {
+			$this->data['Post']['user_id'] = $this->userData['User']['id'];
+			
 			$this->Article->create();
 			if ($this->Article->save($this->data)) {
 				$this->Session->setFlash(__('The article has been saved', true));
@@ -45,6 +50,8 @@ class ArticlesController extends AppController {
 				$this->Session->setFlash(__('The article could not be saved. Please, try again.', true));
 			}
 		}
+		
+		$this->data['Article']['category_id'] = $id;
 		$categories = $this->Article->Category->find('list');
 		$users = $this->Article->User->find('list');
 		$this->set(compact('links', 'categories', 'users'));
