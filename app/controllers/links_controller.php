@@ -3,7 +3,7 @@ class LinksController extends AppController {
 
 	var $name = 'Links';
 
-	function index() {		
+	function index() {
 		$this->Permissions->lock('Add Link');
 		$this->Link->recursive = 0;
 		$this->paginate = array('order'=>array('Link.order'=>'DESC'));

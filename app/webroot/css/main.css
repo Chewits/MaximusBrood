@@ -207,12 +207,15 @@ td.actions {
 }
 .left {
 	text-align: left;
+	vertical-align: middle;
 }
 .center {
 	text-align: center;
+	vertical-align: middle;
 }
 .right {
 	text-align: right;
+	vertical-align: middle;
 }
 .third {
 	width: 33%;

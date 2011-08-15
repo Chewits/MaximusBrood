@@ -2,6 +2,7 @@
 class CategoriesController extends AppController {
 
 	var $name = 'Categories';
+	var $uses = array('Category', 'Link');
 
 	function index() {
 		//We are retrieving parent categories only, so we can unbind the parent category property.
@@ -22,7 +23,21 @@ class CategoriesController extends AppController {
 	
 		if (!empty($this->data)) {
 			$this->Category->create();
+			
 			if ($this->Category->save($this->data)) {
+				if($this->data['Category']['menu'] == '1') {
+					$link = array('Link'=>array(
+						'title'=>$this->data['Category']['title'],
+						'description'=>$this->data['Category']['description'],
+						'controller'=>'categories',
+						'action'=>'view/'.$this->Category->id,
+						'alias'=>strtolower($this->data['Category']['title'])
+						)
+					);
+					$this->Link->userData = $this->userData;
+					$this->Link->save($link);
+				}
+			
 				$this->Session->setFlash(__('The category has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {

@@ -11,9 +11,9 @@
 		'Edit Article'=>array(
 			'Move Up'		=>		array('controller'=>'articles', 'action'=>'moveup',$article['id']),
 			'Move Down'		=>		array('controller'=>'articles', 'action'=>'movedown', $article['id']),
-			'Edit'		=>		array('controller'=>'articles', 'action'=>'edit', $article['id'])),
-		'Delete Article'=>	array(
-			'Delete'	=>		array('controller'=>'articles', 'action'=>'delete', $article['id']))
+			'Edit'		=>			array('controller'=>'articles', 'action'=>'edit', $article['id'])),
+		'Delete Article'=>			array(
+			'Delete'	=>			array('controller'=>'articles', 'action'=>'delete', $article['id']))
 	);
 	
 	$permissionsLinks = $permissions->linkList($permissionsData, $userData);
@@ -21,7 +21,15 @@
 ?>
 
 <div class="record">
-<h2><?= $article['title'] ?></h2>
+<h2>
+	<? 
+		if(!empty($article['url'])) {
+			echo $html->link($article['title'], $article['url']);
+		} else {
+			echo $article['title'];
+		}
+	?>
+</h2>
 <p><?= $filter->text($article['description']); ?></p>
 <p class="actions"><?= $permissionsLinks ?></p> 
 </div>
