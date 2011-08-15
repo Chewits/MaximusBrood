@@ -109,7 +109,7 @@
       </tr>
 	  <tr>
         <td>Last Active:</td>
-        <td>dd/mm/yyyy (x days ago)</td>
+        <td></td>
       </tr>
       <tr>
       <td class="bottom" colspan="2"></td>
@@ -164,87 +164,30 @@
       <tr>
         <td width="30%"><b>Game Type:</b></td>
         <td width="30%"><b>Map:</b></td>
-		<td width="20%"><b>Result:</b></td>
-		<td width="20%"><b>Date:</b></td>
+	<td width="20%"><b>Result:</b></td>
+	<td width="20%"><b>Date:</b></td>
       </tr>
-			<tr>
-				<td width=30%>
-					 Custom
-				</td>
-				<td width=30%>
-					Xel'Naga Caverns
-				</td>
-				<td width=20%>
-					Win
-				</td>
-				<td width=20%>
-					19/7/2011		
-				</td>
-			</tr>
-
-			<tr>
-				<td width=30%>
-					 Custom
-				</td>
-				<td width=30%>
-					Xel'Naga Caverns
-				</td>
-				<td width=20%>
-					Win
-				</td>
-				<td width=20%>
-					19/7/2011		
-				</td>
-			</tr>
-			<tr>
-				<td width=30%>
-					 Custom
-				</td>
-				<td width=30%>
-					Xel'Naga Caverns
-				</td>
-				<td width=20%>
-					Win
-				</td>
-				<td width=20%>
-					19/7/2011		
-				</td>
-			</tr>
-
-			<tr>
-				<td width=30%>
-					 Custom
-				</td>
-				<td width=30%>
-					Xel'Naga Caverns
-				</td>
-				<td width=20%>
-					Win
-				</td>
-				<td width=20%>
-					19/7/2011		
-				</td>
-			</tr>
+	<tr>
+		<td width=30%>
+			type
+		</td>
+		<td width=30%>
+			map
+		</td>
+		<td width=20%>
+			result
+		</td>
+		<td width=20%>
+			date	
+		</td>
+	</tr>
 			
-			<tr>
-				<td width=30%>
-					 Custom
-				</td>
-				<td width=30%>
-					Xel'Naga Caverns
-				</td>
-				<td width=20%>
-					Win
-				</td>
-				<td width=20%>
-					19/7/2011		
-				</td>
-			</tr>
-			<tr>
-      			<td class="bottom" colspan="4"></td>
-      		</tr>
 		<? if(!empty($profile['Profile']['sc2'])): ?>
-		<? //pr($battlenet->gameinfo($profile['Profile']['sc2'])); ?>
+		<? // pr($battlenet->recentgames($profile['Profile']['sc2'])); ?>
+			
+	<tr>
+		<td class="bottom" colspan="4"></td>
+      	</tr>
     </table>
    </td>
   </tr>
@@ -315,12 +258,9 @@
 </table>
 </div>
 
-
-<? 
-
-// Test bbcode works
-// echo  $bbcode->doShortcode('[b][u][i]This is bold italic and underlined.[/i][/u][/b]')  ?>
-
 <? endif ?>
-	
+
+
+<?= pr($profile); ?>
+
 
