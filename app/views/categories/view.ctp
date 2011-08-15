@@ -2,6 +2,7 @@
 	<h2><?= $category['Category']['title'] ?></h2>
 	<p><?= $filter->text($category['Category']['description']); ?></p>
 </div>
+<?php $javascript->link('bbcode.js', false); ?>
 
 <? 	
 	$category['Article'] = Set::sort($category['Article'], '{n}.order', 'desc');
@@ -20,7 +21,7 @@
 	
 ?>
 
-<div class="record">
+<div class="news">
 <h2>
 	<? 
 		if(!empty($article['url'])) {
@@ -30,7 +31,9 @@
 		}
 	?>
 </h2>
-<p><?= $filter->text($article['description']); ?></p>
+<p class="newstop"></p>
+<?= $bbcode->bbcodeon($article['description']); ?>
+<p class="newsbot"></p>
 <p class="actions"><?= $permissionsLinks ?></p> 
 </div>
 

@@ -19,8 +19,8 @@ else {
 	//user is not logged in
 	echo $form->create('User', array('style'=>'position:relative; top:-3px;','url'=>array('controller'=>'members', 'action'=>'login')));
 	
-	echo $form->input('username', array('between'=>':', 'Default'=>'Username', 'div'=>false));
-	echo $form->input('password', array('between'=>':', 'Default'=>'Password', 'div'=>false));
+	echo $form->input('username', array('between'=>': ', 'Default'=>'Username', 'div'=>false)); 
+	echo $form->input('password', array('between'=>': ', 'Default'=>'Password', 'div'=>false));
 	echo '<button type="submit" style="visibility: hidden;"></button>';
 	echo $form->end();
 }

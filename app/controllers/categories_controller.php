@@ -3,6 +3,7 @@ class CategoriesController extends AppController {
 
 	var $name = 'Categories';
 	var $uses = array('Category', 'Link');
+	var $helpers = array('Bbcode', 'Html', 'Form', 'Javascript');
 
 	function index() {
 		//We are retrieving parent categories only, so we can unbind the parent category property.
