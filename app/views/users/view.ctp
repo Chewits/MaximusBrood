@@ -133,7 +133,10 @@
 				foreach($profile['Group'] as $group) {
 					if(!empty($group['image'])) {
 						$ingroup = true;
-						echo $html->image('icons/groups/'.$group['image']);
+						$address = '';
+							if(isset($profile['Profile'][substr($group['image'], 0, -4)]))
+								$address = $profile['Profile'][substr($group['image'], 0, -4)];
+						echo $html->link($html->image('icons/groups/'.$group['image']), $address, array('escape' => false));
 					}
 				}
 				
