@@ -14,7 +14,8 @@ class CategoriesController extends AppController {
 		//get relevant page data
 		$category = $this->Category->find('first', array('conditions'=>array('Category.id'=>$id)));
 		$this->Menu->setAlias(strtolower($category['Category']['title']));
-		$this->Menu->addChild('Add '.Inflector::singularize($category['Category']['title']), array('controller'=>'articles', 'action'=>'add', $category['Category']['id']), true); //add the reply link to the menu	
+		if($this->Permissions->check('Add Article'))
+			$this->Menu->addChild('Add '.Inflector::singularize($category['Category']['title']), array('controller'=>'articles', 'action'=>'add', $category['Category']['id']), true); //add the reply link to the menu	
 		$this->set('category', $category);
 	}
 
