@@ -41,5 +41,3 @@ $replyText = $replyCount.$replyWord;
 <?php endforeach; ?>
 </table>
 <?= $this->element('pager'); ?>
-
-<? pr($post) ?>

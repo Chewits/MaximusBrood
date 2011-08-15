@@ -44,7 +44,7 @@
 			<?php echo $this->Html->link($post['User']['username'], array('controller' => 'users', 'action' => 'view', $post['User']['id'])); ?>
 		</td>
 		<td class="forum_lastpost right">
-			<?php echo $post['Post']['last_post']; ?>
+			<?php echo $time->niceShort($post['Post']['last_post']); ?>
 			<br /><?php echo $this->Html->link($post['Last_User']['username'], array('controller' => 'users', 'action' => 'view', $post['Last_User']['id'])); ?>
 		</td>
 	</tr>
