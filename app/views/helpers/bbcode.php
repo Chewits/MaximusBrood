@@ -142,7 +142,8 @@ function quotereplace($content) {
 	}
 	
 	
-	function urlreplace($content){	
+	function urlreplace($content){
+	
 	 	$starttags = substr_count(strtolower($content), strtolower('[url'));
 		$endtags = substr_count(strtolower($content), strtolower('[/url]'));
 		$overflow=abs($starttags-$endtags);
@@ -156,9 +157,10 @@ function quotereplace($content) {
 			preg_match("/\[(.*?)\](.*?)\[(.*?)\]/si",$match[1],$new_erg);
 			$match_rep = str_replace($match[1],$new_erg[2],$match[0]);
 			$content = str_replace($match[0],$match_rep,$content);
+			
 		}
-		$content = preg_replace("#\[url=(.*?)\]#ie","'<a href=\"'.bbcodehelper::fixJavaEvents('\\1').'\" target=\"_blank\">'",$content);
-		$content = preg_replace("#\<a href='www(.*?)' target='_blank'>#i","<a href='http://www\\1' target='_blank'>",$content);
+		$content = preg_replace("#\[url=(.*?)\]#ie","'<a href=\"'.bbcodehelper::fixJavaEvents('\\1').'\" target=\"_blank\" rel=\"nofollow\">'",$content);
+		$content = preg_replace("#\<a href=\"www(.*?)\" target=\"_blank\" rel=\"nofollow\">#i","<a href='http://www\\1' target=\"_blank\" rel=\"nofollow\">",$content);
 		$content = str_ireplace("[/url]","</a>",$content);
 		return $content;
 	}
@@ -241,7 +243,7 @@ function quotereplace($content) {
 	// function to allow BBCode only
 
 	function bbcodeon($text) {
-		$text = htmlspecialchars($text);
+		$text = htmlspecialchars($text, ENT_NOQUOTES);
 		$text = strip_tags($text);
 		$text = nl2br($text);
 		$text = $this->imgreplace($text);
@@ -256,7 +258,7 @@ function quotereplace($content) {
 	// function to allow BBCode only with NO images/youtube
 
 	function bbcodeon_noimg($text) {
-		$text = htmlspecialchars($text);
+		$text = htmlspecialchars($text, ENT_NOQUOTES);
 		$text = strip_tags($text);
 		$text = nl2br($text);
 		$text = $this->replacement($text);
