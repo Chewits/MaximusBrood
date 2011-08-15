@@ -33,7 +33,7 @@ $replyText = $replyCount.$replyWord;
 			<?= $html->link($post['User']['username'], array('controller'=>'users', 'action'=>'view', $post['User']['id']), array('title'=>$post['User']['Rank']['title'].' '.$post['User']['username'])); ?></br>
 			(<?= $post['User']['post_count']; ?> posts)<br/>
 			Date:<br />
-			 <?= $post['Post']['timestamp']; ?><br />
+			 <?= $time->nice($post['Post']['timestamp']); ?><br />
 			 <?= $permissionsLinks ?>
 		</td>
 		<td><?= $bbcode->bbcodeon($post['Post']['description']); ?><br /><br />--<br /><br /><?= $bbcode->bbcodeon_noimg($post['User']['Profile']['signature']); ?></td>
@@ -41,3 +41,5 @@ $replyText = $replyCount.$replyWord;
 <?php endforeach; ?>
 </table>
 <?= $this->element('pager'); ?>
+
+<? pr($post) ?>
