@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 15, 2011 at 02:07 AM
+-- Generation Time: Aug 15, 2011 at 02:15 AM
 -- Server version: 5.1.44
 -- PHP Version: 5.2.13
 
@@ -213,7 +213,7 @@ INSERT INTO `mb_links` VALUES(21, 17, 'Rules', '', 'categories', 'rules', 'view/
 INSERT INTO `mb_links` VALUES(24, 10, 'Pages', '', 'categories', '', '/', '', 2, 0);
 INSERT INTO `mb_links` VALUES(26, 16, 'Links', '', 'categories', 'links', 'view/3', '', 0, 0);
 INSERT INTO `mb_links` VALUES(25, 4, 'Add Category', '', 'categories', '', 'add', '', 8, 24);
-INSERT INTO `mb_links` VALUES(29, 7, 'Menu', '', 'menu', '', '', '', 14, 0);
+INSERT INTO `mb_links` VALUES(29, 7, 'Menu', '', 'links', '', '', '', 14, 0);
 
 -- --------------------------------------------------------
 
@@ -232,7 +232,7 @@ CREATE TABLE `mb_logs` (
   `user_id` int(11) NOT NULL,
   `additional_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3459 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3463 ;
 
 --
 -- Dumping data for table `mb_logs`
@@ -3661,6 +3661,10 @@ INSERT INTO `mb_logs` VALUES(3455, 'Link', 'Move down', '', '2011-08-15 01:55:28
 INSERT INTO `mb_logs` VALUES(3456, 'View', '/maximusbrood/links', '', '2011-08-15 01:55:28', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
 INSERT INTO `mb_logs` VALUES(3457, 'View', '/maximusbrood/links/view/16', '', '2011-08-15 02:06:19', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
 INSERT INTO `mb_logs` VALUES(3458, 'View', '/maximusbrood/links', '', '2011-08-15 02:06:38', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3459, 'View', '/maximusbrood/links', '', '2011-08-15 02:14:01', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3460, 'View', '/maximusbrood/menu/edit/29', '', '2011-08-15 02:14:49', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3461, 'Link', 'Edit', '', '2011-08-15 02:14:55', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(3462, 'View', '/maximusbrood/menu/index', '', '2011-08-15 02:14:55', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/13.0.782.112 Safari/535.1', 1, 0);
 
 -- --------------------------------------------------------
 

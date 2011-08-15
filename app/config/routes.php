@@ -32,4 +32,6 @@
  */
 	Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));
 	
+	
 	Router::connect('/members/:action/*', array('controller' => 'users', 'action'=>'index'));
+	Router::connect('/menu/:action/*', array('controller' => 'links', 'action'=>'index'));
