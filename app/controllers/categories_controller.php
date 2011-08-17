@@ -38,6 +38,8 @@ class CategoriesController extends AppController {
 					);
 					$this->Link->userData = $this->userData;
 					$this->Link->save($link);
+					$this->Category->set('link_id', $this->Link->id);
+					$this->Category->save();
 				}
 			
 				$this->Session->setFlash(__('The category has been saved', true));
@@ -58,6 +60,28 @@ class CategoriesController extends AppController {
 		}
 		if (!empty($this->data)) {
 			if ($this->Category->save($this->data)) {
+				if($this->data['Category']['menu'] == '1') {
+					$link = array('Link'=>array(
+						'id'=>$this->data['Category']['link_id'],
+						'title'=>$this->data['Category']['title'],
+						'description'=>$this->data['Category']['description'],
+						'controller'=>'categories',
+						'action'=>'view/'.$this->Category->id,
+						'alias'=>strtolower($this->data['Category']['title'])
+						)
+					);
+					$this->Link->userData = $this->userData;
+					$this->Link->save($link);
+					$this->Category->set('link_id', $this->Link->id);
+					$this->Category->save();
+				} else {
+					if($this->data['Category']['link_id'] != 0) {
+						$this->Category->Link->userData = $this->userData;
+						$this->Category->Link->delete($this->data['Category']['link_id']);
+						$this->Category->set('link_id', 0);	
+						$this->Category->save();
+					}
+				}
 				$this->Session->setFlash(__('The category has been saved', true));
 				$this->redirect(array('action' => 'index'));
 			} else {
@@ -66,6 +90,9 @@ class CategoriesController extends AppController {
 		}
 		if (empty($this->data)) {
 			$this->data = $this->Category->read(null, $id);
+			if($this->data['Category']['link_id'] != 0) {
+				$this->data['Category']['menu'] = 1;
+			}
 		}
 		$this->set(compact('categories'));
 	}
