@@ -40,5 +40,5 @@ $replyText = $replyCount.$replyWord;
 	</tr>
 <?php endforeach; ?>
 </table>
-<p class="center"><?= $html->link('Add Reply', array('controller'=>'forum', 'action'=>'reply', $thread['Post']['id'])); ?></p>
+<p class="centre"><?= $html->link('Add Reply', array('controller'=>'forum', 'action'=>'reply', $thread['Post']['id'])); ?></p>
 <?= $this->element('pager'); ?>

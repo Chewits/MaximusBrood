@@ -21,6 +21,9 @@ class UsersController extends AppController {
 			//if not then we redirect to the members page
 			if(isset($this->userData['User']['id']))
 				$userid = $this->userData['User']['id'];
+				if(!$this->Permissions->check('Edit User')) {
+					$this->Menu->addChild('Change Password', array('controller'=>'members', 'action'=>'changepassword', $userid), true); //add the reply link to the menu
+				}
 			else
 				$this->redirect(array('controller'=>'users', 'action'=>'index'));
 		}
@@ -33,6 +36,7 @@ class UsersController extends AppController {
 				$this->Menu->addChild('Promote', array('controller'=>'members', 'action'=>'promote', $userid), true); //add the reply link to the menu
 				$this->Menu->addChild('Demote', array('controller'=>'members', 'action'=>'promote', $userid, 'false'), true); //add the reply link to the menu
 				$this->Menu->addChild('Dismiss', array('controller'=>'members', 'action'=>'reinstate', $userid, 'false'), true);
+				$this->Menu->addChild('Change Password', array('controller'=>'members', 'action'=>'changepassword', $userid), true); //add the reply link to the menu
 			}
 			else {
 				$this->Menu->addChild('Reinstate', array('controller'=>'members', 'action'=>'reinstate', $userid), true); //add the reply link to the menu
@@ -43,6 +47,8 @@ class UsersController extends AppController {
 		}
 		if($this->Permissions->check('Edit Permissions'))
 			$this->Menu->addChild('Edit Permissions', array('controller'=>'permissions', 'action'=>'edit', $userid), true); //add the reply link to the menu
+		
+		
 		
 		//get users profile
 		$this->set('profile', $user);
@@ -238,6 +244,33 @@ class UsersController extends AppController {
 			$this->set('ranks', $ranks);
 		}
     		
+	}
+	
+	function changepassword($id = null) {
+		if($this->data) {
+			$this->Permissions->lock('Edit User');
+			if($this->data['User']['password'] == $this->Auth->password($this->data['User']['passwordconfirm'])) {
+				if($this->User->save($this->data)) {
+					$this->Session->setFlash('Your password has been updated.');
+					$this->redirect(array('controller'=>'members', 'action'=>'view', $this->data['User']['id']));
+				}
+			} else {
+				$this->Session->setFlash('Passwords do not match.', 'default', array('class'=>'error-message'));
+			}
+		} else {
+			if($id != null) {
+				$this->Permissions->lock('Edit User');
+				$this->data = $this->User->read(null, $id);
+				$this->data['User']['password'] = '';
+			} else {
+				if(isset($this->userData['User']['id'])) {
+					$id = $this->userData['User']['id']; 
+				} else {
+					$this->Session->setFlash('You are not authorised to do that.');
+					$this->redirect(array('controller'=>'members'));
+				}
+			}
+		}
 	}
 }
 ?>
