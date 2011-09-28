@@ -258,7 +258,7 @@ class UsersController extends AppController {
 				$this->Session->setFlash('Passwords do not match.', 'default', array('class'=>'error-message'));
 			}
 		} else {
-			if($id != null && ($this->Permissions->check('Edit User') || $id = $this->userData['User']['id'])) {
+			if($id != null && ($this->Permissions->check('Edit User') || $id == $this->userData['User']['id'])) {
 				$this->data = $this->User->read(null, $id);
 				$this->data['User']['password'] = '';
 			} else {
