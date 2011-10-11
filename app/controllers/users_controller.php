@@ -258,17 +258,12 @@ class UsersController extends AppController {
 				$this->Session->setFlash('Passwords do not match.', 'default', array('class'=>'error-message'));
 			}
 		} else {
-			if($id != null) {
-				$this->Permissions->lock('Edit User');
+			if($id != null && ($this->Permissions->check('Edit User') || $id == $this->userData['User']['id'])) {
 				$this->data = $this->User->read(null, $id);
 				$this->data['User']['password'] = '';
 			} else {
-				if(isset($this->userData['User']['id'])) {
-					$id = $this->userData['User']['id']; 
-				} else {
-					$this->Session->setFlash('You are not authorised to do that.');
-					$this->redirect(array('controller'=>'members'));
-				}
+				$this->Session->setFlash('You are not authorised to do that.');
+				$this->redirect(array('controller'=>'members'));
 			}
 		}
 	}
