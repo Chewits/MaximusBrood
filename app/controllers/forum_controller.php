@@ -95,6 +95,14 @@ class ForumController extends AppController {
 			$this->Menu->addChild($sticktext, array('controller'=>'forum', 'action'=>'stick', $id), true); //add the reply link to the menu
 		}
 		
+		//add the current user to the thread viewers
+		$pos = strpos($thread['Post']['viewers'], $this->userData['User']['id']);
+		if($pos === false) {
+			$thread['Post']['viewers'] .= $this->userData['User']['id'].';';
+			$this->Post->id = $thread['Post']['id'];
+			$this->Post->saveField('viewers', $thread['Post']['viewers']);
+		}
+		
 		//get the data and send to the view
 		$this->paginate = array('limit'=>$this->threadSize, 'conditions'=>array('OR'=>array('Post.id'=>$id, 'Post.post_id'=>$id)), 'order'=>array('Post.id'=>'ASC'));
 		$this->set('replyCount', $this->Post->find('count', array('conditions'=>array('Post.post_id'=>$id))));
@@ -110,6 +118,7 @@ class ForumController extends AppController {
 			$this->data['Post']['timestamp'] = DboSource::expression('NOW()');
 			$this->data['Post']['last_user_id'] = $this->userData['User']['id'];
 			$this->data['Post']['last_post'] = DboSource::expression('NOW()');
+			$this->data['Post']['viewers'] = ';'; 
 		
 			$this->Post->create();
 			if ($this->Post->save($this->data)) {
@@ -164,7 +173,8 @@ class ForumController extends AppController {
 					'Post' => array(
 						'id' => $this->data['Post']['post_id'],
 						'last_user_id' => $this->data['Post']['user_id'],
-						'last_post' => $this->data['Post']['timestamp']
+						'last_post' => $this->data['Post']['timestamp'],
+						'viewers' => ';'
 					)
 				);				
 				$this->Post->save($parent_data);

@@ -22,17 +22,22 @@
 	?>
 	<tr<?php echo $class;?>>
 		<td class="forum_icon left" style="vertical-align: middle;">
-		<? 
-		
-		if($post['Post']['locked'])
-		echo $html->image('icons/lock_thread.png');
-		
-		elseif($post['Post']['stuck'])
-		echo $html->image('icons/sticky_thread.png');
-		
-		else 
-		echo $html->image('icons/old_thread.png');
-		
+		<?
+		if(strpos($post['Post']['viewers'], ';'.$userData['User']['id'].';') === false) {
+			if($post['Post']['locked'])
+				echo $html->image('icons/lock_thread_new.png');
+			elseif($post['Post']['stuck'])
+				echo $html->image('icons/sticky_thread_new.png');
+			else 
+				echo $html->image('icons/thread_new.png');
+		} else {
+			if($post['Post']['locked'])
+				echo $html->image('icons/lock_thread_old.png');
+			elseif($post['Post']['stuck'])
+				echo $html->image('icons/sticky_thread_old.png');
+			else 
+				echo $html->image('icons/thread_old.png');
+		}
 		 ?>
 		
 		</td>
@@ -51,3 +56,5 @@
 <?php endforeach; ?>
 </table>
 <?= $this->element('pager'); ?>
+
+<? pr($posts);?>
