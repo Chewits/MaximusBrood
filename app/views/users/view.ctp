@@ -65,7 +65,7 @@
       </tr>
 	   <tr>
         <td>Joined:</td>
-        <td>dd/mm/yyy (x days ago)</td>
+        <td><?= $time->niceShort($profile['User']['join_date']); ?> (<?= $time->timeAgoInWords($profile['User']['join_date']); ?>)</td>
       </tr>
 	   <tr>
         <td>Recruited by:</td>
@@ -109,7 +109,7 @@
       </tr>
 	  <tr>
         <td>Last Active:</td>
-        <td></td>
+        <td><?= $time->niceShort($profile['User']['last_active']); ?></td>
       </tr>
       <tr>
       <td class="bottom" colspan="2"></td>

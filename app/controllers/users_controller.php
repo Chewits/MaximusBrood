@@ -47,8 +47,9 @@ class UsersController extends AppController {
 		}
 		if($this->Permissions->check('Edit Permissions'))
 			$this->Menu->addChild('Edit Permissions', array('controller'=>'permissions', 'action'=>'edit', $userid), true); //add the reply link to the menu
-		
-		
+			
+		$last_log = $this->Log->find('first', array('conditions'=>array('Log.user_id'=>$userid), 'order'=>array('Log.id'=>'DESC')));
+		$user['User']['last_active'] = $last_log['Log']['timestamp'];
 		
 		//get users profile
 		$this->set('profile', $user);
@@ -64,6 +65,8 @@ class UsersController extends AppController {
 		$this->Permissions->lock('Add User');
 	
 		if (!empty($this->data)) {	
+			$this->data['User']['join_date'] = DboSource::expression('NOW()');
+			
 			//set default permissions
 			$this->User->Permission->recursive = 0;
 			$defaultPermissions = $this->User->Permission->find('all', array('conditions'=>array('Permission.default'=>'1')));

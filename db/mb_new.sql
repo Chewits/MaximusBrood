@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 11, 2011 at 07:42 AM
+-- Generation Time: Oct 11, 2011 at 08:04 AM
 -- Server version: 5.1.44
 -- PHP Version: 5.2.13
 
@@ -257,7 +257,7 @@ CREATE TABLE `mb_logs` (
   `user_id` int(11) NOT NULL,
   `additional_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4415 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4424 ;
 
 --
 -- Dumping data for table `mb_logs`
@@ -4642,6 +4642,15 @@ INSERT INTO `mb_logs` VALUES(4411, 'View', '/maximusbrood/forum/reply/39', '', '
 INSERT INTO `mb_logs` VALUES(4412, 'Forum', 'Edit', 'Finn', '2011-10-11 07:42:26', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 39);
 INSERT INTO `mb_logs` VALUES(4413, 'Post', 'Edit', '', '2011-10-11 07:42:26', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 0);
 INSERT INTO `mb_logs` VALUES(4414, 'View', '/maximusbrood/forum', '', '2011-10-11 07:42:29', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(4415, 'View', '/maximusbrood/members/view/1', '', '2011-10-11 07:57:16', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(4416, 'View', '/maximusbrood/forum', '', '2011-10-11 07:57:32', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(4417, 'View', '/maximusbrood/members/view/1', '', '2011-10-11 07:58:27', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(4418, 'View', '/maximusbrood/members/view/1', '', '2011-10-11 07:58:37', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(4419, 'View', '/maximusbrood/members/add', '', '2011-10-11 08:00:55', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(4420, 'User', 'Add', '', '2011-10-11 08:01:07', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(4421, 'View', '/maximusbrood/members/index', '', '2011-10-11 08:01:07', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(4422, 'View', '/maximusbrood/members/view/13', '', '2011-10-11 08:04:05', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(4423, 'View', '/maximusbrood/members/view/13', '', '2011-10-11 08:04:07', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -4732,7 +4741,7 @@ CREATE TABLE `mb_permissions_users` (
   `permission_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=989 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=992 ;
 
 --
 -- Dumping data for table `mb_permissions_users`
@@ -4836,6 +4845,9 @@ INSERT INTO `mb_permissions_users` VALUES(983, 19, 11);
 INSERT INTO `mb_permissions_users` VALUES(986, 19, 12);
 INSERT INTO `mb_permissions_users` VALUES(987, 29, 12);
 INSERT INTO `mb_permissions_users` VALUES(988, 33, 12);
+INSERT INTO `mb_permissions_users` VALUES(989, 19, 13);
+INSERT INTO `mb_permissions_users` VALUES(990, 29, 13);
+INSERT INTO `mb_permissions_users` VALUES(991, 33, 13);
 
 -- --------------------------------------------------------
 
@@ -4938,7 +4950,7 @@ CREATE TABLE `mb_profiles` (
   `sc2name` varchar(255) NOT NULL,
   `sc2code` varchar(3) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
 
 --
 -- Dumping data for table `mb_profiles`
@@ -4954,6 +4966,7 @@ INSERT INTO `mb_profiles` VALUES(8, '', 9, 'joe', '', '1997-04-14', 'United King
 INSERT INTO `mb_profiles` VALUES(9, '', 10, 'Bob', '', '1974-11-14', 'Georgia', '', '', '', '', '', '', '', '', '', '', '');
 INSERT INTO `mb_profiles` VALUES(10, '', 11, 'Alan', '', '1996-08-04', 'Czech Republic', '', '', '', '', '', '', '', '', '', '', '');
 INSERT INTO `mb_profiles` VALUES(11, '', 12, 'John', '', '1983-04-05', 'Italy', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `mb_profiles` VALUES(12, '', 13, '', '', '2011-10-11', 'United Kingdom', '', '', '', '', '', '', '', '', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -5005,22 +5018,24 @@ CREATE TABLE `mb_users` (
   `password` varchar(255) NOT NULL,
   `post_count` int(11) NOT NULL,
   `rank_id` int(11) NOT NULL,
+  `join_date` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=13 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
 -- Dumping data for table `mb_users`
 --
 
-INSERT INTO `mb_users` VALUES(1, 'Finn', 'e234c6768c4fbe6d0d81f8ccb32813b66005ea67', 22, 4);
-INSERT INTO `mb_users` VALUES(2, 'Test', '88155109a8bb9f21f05c35991c41c70823d21f5a', 0, 13);
-INSERT INTO `mb_users` VALUES(3, 'TestGuest', '13f67e1192bbfe5d1c06d688be40e036a4110ff0', 0, 7);
-INSERT INTO `mb_users` VALUES(4, 'Perm', '13f67e1192bbfe5d1c06d688be40e036a4110ff0', 0, 7);
-INSERT INTO `mb_users` VALUES(5, 'Artanis[MB]', 'd7cccb428dd88f37d2d9db584804a097839c62a2', 0, 9);
-INSERT INTO `mb_users` VALUES(6, 'Chewits[MB]', 'a2ba06a24be2c9629a993d2ec23b0b182d4bb10a', 24, 4);
-INSERT INTO `mb_users` VALUES(7, 'testdate', '13f67e1192bbfe5d1c06d688be40e036a4110ff0', 0, 3);
-INSERT INTO `mb_users` VALUES(8, 'testtest', 'bce8533c16a368ab00fbb4891443afd2ec4ee7df', 0, 7);
-INSERT INTO `mb_users` VALUES(9, 'legend', 'bce8533c16a368ab00fbb4891443afd2ec4ee7df', 0, 9);
-INSERT INTO `mb_users` VALUES(10, 'exmember', 'bce8533c16a368ab00fbb4891443afd2ec4ee7df', 0, 10);
-INSERT INTO `mb_users` VALUES(11, 'washout', 'bce8533c16a368ab00fbb4891443afd2ec4ee7df', 0, 11);
-INSERT INTO `mb_users` VALUES(12, 'normaluser', 'bce8533c16a368ab00fbb4891443afd2ec4ee7df', 1, 21);
+INSERT INTO `mb_users` VALUES(1, 'Finn', 'e234c6768c4fbe6d0d81f8ccb32813b66005ea67', 22, 4, '0000-00-00 00:00:00');
+INSERT INTO `mb_users` VALUES(2, 'Test', '88155109a8bb9f21f05c35991c41c70823d21f5a', 0, 13, '0000-00-00 00:00:00');
+INSERT INTO `mb_users` VALUES(3, 'TestGuest', '13f67e1192bbfe5d1c06d688be40e036a4110ff0', 0, 7, '0000-00-00 00:00:00');
+INSERT INTO `mb_users` VALUES(4, 'Perm', '13f67e1192bbfe5d1c06d688be40e036a4110ff0', 0, 7, '0000-00-00 00:00:00');
+INSERT INTO `mb_users` VALUES(5, 'Artanis[MB]', 'd7cccb428dd88f37d2d9db584804a097839c62a2', 0, 9, '0000-00-00 00:00:00');
+INSERT INTO `mb_users` VALUES(6, 'Chewits[MB]', 'a2ba06a24be2c9629a993d2ec23b0b182d4bb10a', 24, 4, '0000-00-00 00:00:00');
+INSERT INTO `mb_users` VALUES(7, 'testdate', '13f67e1192bbfe5d1c06d688be40e036a4110ff0', 0, 3, '0000-00-00 00:00:00');
+INSERT INTO `mb_users` VALUES(8, 'testtest', 'bce8533c16a368ab00fbb4891443afd2ec4ee7df', 0, 7, '0000-00-00 00:00:00');
+INSERT INTO `mb_users` VALUES(9, 'legend', 'bce8533c16a368ab00fbb4891443afd2ec4ee7df', 0, 9, '0000-00-00 00:00:00');
+INSERT INTO `mb_users` VALUES(10, 'exmember', 'bce8533c16a368ab00fbb4891443afd2ec4ee7df', 0, 10, '0000-00-00 00:00:00');
+INSERT INTO `mb_users` VALUES(11, 'washout', 'bce8533c16a368ab00fbb4891443afd2ec4ee7df', 0, 11, '0000-00-00 00:00:00');
+INSERT INTO `mb_users` VALUES(12, 'normaluser', 'bce8533c16a368ab00fbb4891443afd2ec4ee7df', 1, 21, '0000-00-00 00:00:00');
+INSERT INTO `mb_users` VALUES(13, 'bob', '9fec548444c410c3e5038ed3fd5b8fc4f9dc0018', 0, 3, '2011-10-11 08:01:07');
