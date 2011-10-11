@@ -56,5 +56,3 @@
 <?php endforeach; ?>
 </table>
 <?= $this->element('pager'); ?>
-
-<? pr($posts);?>
