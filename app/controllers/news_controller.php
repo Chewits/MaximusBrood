@@ -5,8 +5,8 @@ class NewsController extends AppController {
 	var $helpers = array('bbcode', 'Html', 'Form', 'Javascript');
 	
 	function index() {
+		//retrieve the news posts.		
 		$this->Post->recursive = 0;
-		
 		$news = $this->Post->find('all', array('order'=>array('Post.id'=>'DESC'), 'conditions'=>array('Board.title'=>'News')));
 		
 		//loop though and count replies
@@ -15,6 +15,7 @@ class NewsController extends AppController {
 			$news[$i]['Post']['replies'] = $this->Post->find('count', array('conditions'=>array('Post.post_id'=>$id)));
 		}
 		
+		//send to view
 		$this->set('news', $news);
 	}
 

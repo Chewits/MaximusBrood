@@ -1,6 +1,9 @@
 <? 
 
-if(isset($userData['User']['id'])) {
+//This draws the user bar at the top of the screen or a login box if they are not logged in
+
+if(isset($userData['User']['id'])) 
+{
 	//user is logged in
 	echo 'Welcome back ';
 	echo $html->link($userData['User']['username'], array('controller'=>'members', 'action'=>'view', $userData['User']['id']));
@@ -15,7 +18,8 @@ if(isset($userData['User']['id'])) {
 	echo ' | ';
 	echo $html->link('Log Out', array('controller'=>'members', 'action'=>'logout'), array('class'=>'admin'));
 }
-else {
+else 
+{
 	//user is not logged in
 	echo $form->create('User', array('style'=>'position:relative; top:-3px;','url'=>array('controller'=>'members', 'action'=>'login')));
 	

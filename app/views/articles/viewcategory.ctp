@@ -17,13 +17,12 @@
 	);
 	
 	$permissionsLinks = $permissions->linkList($permissionsData, $userData);
-	
 ?>
 
 <div class="record">
-<h2><?= $article['title'] ?></h2>
-<p><?= $filter->text($article['description']); ?></p>
-<p class="actions"><?= $permissionsLinks ?></p> 
+	<h2><?= $article['title'] ?></h2>
+	<p><?= $filter->text($article['description']); ?></p>
+	<p class="actions"><?= $permissionsLinks ?></p> 
 </div>
 
 <? endforeach; ?>

@@ -6,8 +6,7 @@
 <?php $javascript->link('bbcode.js', false); ?>
 <fieldset>
 	<legend>Add News</legend>
-<?= $this->element('bbcodeinput'); ?>
-
+    <?= $this->element('bbcodeinput'); ?>
 	<?php 
 		echo $this->Form->create('Post', array('id'=>'bbcodeadd', 'url'=>array('controller'=>'news', 'action'=>'add')));
 		echo $this->Form->input('title', array('between'=>': ')).'</br>';

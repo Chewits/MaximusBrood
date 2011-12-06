@@ -1,4 +1,3 @@
-
 <? if($users == array() || !isset($users) || empty($users)): ?>
 	<?= isset($message) ? '<p>'.$message.'</p>' : null ?>
 <? else: ?>
