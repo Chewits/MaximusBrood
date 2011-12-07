@@ -96,7 +96,7 @@ class ForumController extends AppController {
 		}
 		
 		//add the current user to the thread viewers
-		$pos = strpos($thread['Post']['viewers'], $this->userData['User']['id']);
+		$pos = strpos($thread['Post']['viewers'], ';'.$this->userData['User']['id'].';');
 		if($pos === false) {
 			$thread['Post']['viewers'] .= $this->userData['User']['id'].';';
 			$this->Post->id = $thread['Post']['id'];
