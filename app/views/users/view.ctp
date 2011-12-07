@@ -262,8 +262,3 @@
 </div>
 
 <? endif ?>
-
-
-<?= pr($profile); ?>
-
-
