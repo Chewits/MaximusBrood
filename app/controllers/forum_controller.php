@@ -18,7 +18,7 @@ class ForumController extends AppController {
 		
 		$conditions = array('Post.post_id'=>'0', 'OR'=>array('Post.board_id'=>array()));
 		
-		//check which boards the user is allowed to see
+		//check which boards the user is allowed to see and dump the result in the boards variable
 		$this->Post->Board->unbindModel(array('hasMany'=>array('Post')));
 		$boards = $this->Post->Board->find('all');
 		foreach($boards as $board) {
@@ -113,7 +113,7 @@ class ForumController extends AppController {
 	function add() {	
 		$this->Permissions->lock('Add Forum');
 	
-		if (!empty($this->data)) {
+		if (!empty($this->data)) { //check if this is a postback
 			$this->data['Post']['user_id'] = $this->userData['User']['id'];
 			$this->data['Post']['timestamp'] = DboSource::expression('NOW()');
 			$this->data['Post']['last_user_id'] = $this->userData['User']['id'];
@@ -149,6 +149,7 @@ class ForumController extends AppController {
 	function reply($id = null) {	
 		$this->Permissions->lock('Add Forum');
 		
+        //check if the post is locked (i.e. no replys allowed)
 		$post = $this->Post->find('first', array('conditions'=>array('Post.id'=>$id)));
 		if($post['Post']['locked']) {
 			$this->Session->setFlash('You are not authorized to do that.', 'default', array('class'=>'error-message'));
@@ -159,8 +160,9 @@ class ForumController extends AppController {
 			$this->Session->setFlash('Invalid thread', 'default', array('class'=>'error-message'));
 			$this->redirect(array('action' => 'index'));
 		}
-		
-		if(!empty($this->data)) { //if it's a post back, save our reply (v-similar to 'add' action)
+        
+        //check if it's a postback (i.e. are we saving data?)
+		if(!empty($this->data)) {
 			$this->data['Post']['user_id'] = $this->userData['User']['id'];
 			$this->data['Post']['timestamp'] = DboSource::expression('NOW()');
 			$this->data['Post']['post_id'] = $id;
@@ -168,7 +170,7 @@ class ForumController extends AppController {
 			$this->Post->create();
 			if ($this->Post->save($this->data)) {
 				
-				//update the parent thread		
+				//if we managed to save the reply then update the parent thread
 				$parent_data = array(
 					'Post' => array(
 						'id' => $this->data['Post']['post_id'],
@@ -194,11 +196,13 @@ class ForumController extends AppController {
 	function edit($id = null) {
 		$this->Permissions->lock('Edit Forum');
 		
+        //check the post we want to edit exists
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash('That post does not exist.');
 			$this->redirect(array('action' => 'index'));
 		}
 		
+        //check if it's a postback (i.e. are we saving data?)
 		if (!empty($this->data)) {
 			$post = $this->Post->read(null, $id);
 			if ($this->Post->save($this->data)) {
@@ -213,12 +217,17 @@ class ForumController extends AppController {
 			}
 		}
 		
+        //if it's not a postback then let's populate the edit boxes
 		if (empty($this->data)) {
 			$this->data = $this->Post->read(null, $id);
 		}
+        
+        //find the appropriate lists for the drop down boxes
 		$posts = $this->Post->Post->find('list');
 		$users = $this->Post->User->find('list');
 		$boards = $this->Post->Board->find('list');
+        
+        //send it all to the view
 		$this->set(compact('posts', 'users', 'boards'));
 	}
 
