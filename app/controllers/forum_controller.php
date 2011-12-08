@@ -120,13 +120,22 @@ class ForumController extends AppController {
 			$this->data['Post']['last_post'] = DboSource::expression('NOW()');
 			$this->data['Post']['viewers'] = ';'; 
 		
-			$this->Post->create();
-			if ($this->Post->save($this->data)) {
-    			$this->Post->manualLog('Forum', 'Add', '', $this->Post->id);
-				$this->Session->setFlash('The post has been saved');
+			//before we save the data we want to check if this is not a repost
+			$last_post = $this->Post->find('first', array('order'=>array('Post.id DESC')));
+			if($last_post['Post']['user_id'] == $this->data['Post']['user_id']
+			&& $last_post['Post']['description'] == $this->data['Post']['description']) {
+				$this->Session->setFlash('That has already been posted! You only need to click the submit button once.');
 				$this->redirect(array('action' => 'index'));
 			} else {
-				$this->Session->setFlash('The post could not be saved. Please, try again.', 'default', array('class'=>'error-message'));
+				//it's not a repost so lets save it
+				$this->Post->create();
+				if ($this->Post->save($this->data)) {
+    				$this->Post->manualLog('Forum', 'Add', '', $this->Post->id);
+					$this->Session->setFlash('The post has been saved');
+					$this->redirect(array('action' => 'index'));
+				} else {
+					$this->Session->setFlash('The post could not be saved. Please, try again.', 'default', array('class'=>'error-message'));
+				}
 			}
 		}
 		
@@ -167,27 +176,37 @@ class ForumController extends AppController {
 			$this->data['Post']['timestamp'] = DboSource::expression('NOW()');
 			$this->data['Post']['post_id'] = $id;
 		
-			$this->Post->create();
-			if ($this->Post->save($this->data)) {
-				
-				//if we managed to save the reply then update the parent thread
-				$parent_data = array(
-					'Post' => array(
-						'id' => $this->data['Post']['post_id'],
-						'last_user_id' => $this->data['Post']['user_id'],
-						'last_post' => $this->data['Post']['timestamp'],
-						'viewers' => ';'
-					)
-				);				
-				$this->Post->save($parent_data);
-				$this->Post->manualLog('Forum', 'Edit', $this->userData['User']['username'], $this->Post->id);
-				
-				$this->Session->setFlash('The post has been saved.');
+			//before we save the data we want to check if this is not a repost
+			$last_post = $this->Post->find('first', array('order'=>array('Post.id DESC')));
+			if($last_post['Post']['user_id'] == $this->data['Post']['user_id']
+			&& $last_post['Post']['description'] == $this->data['Post']['description']) {
+				$this->Session->setFlash('That has already been posted! You only need to click the submit button once.');
 				$this->redirect(array('action' => 'view', $id));
 			} else {
-				$this->Session->setFlash('The post could not be saved. Please, try again.', 'default', array('class'=>'error-message'));
-			}
+				//it's not a repost so lets save it.
+				$this->Post->create();
+				if ($this->Post->save($this->data)) {
+					
+					//if we managed to save the reply then update the parent thread
+					$parent_data = array(
+						'Post' => array(
+							'id' => $this->data['Post']['post_id'],
+							'last_user_id' => $this->data['Post']['user_id'],
+							'last_post' => $this->data['Post']['timestamp'],
+							'viewers' => ';'
+						)
+					);				
+					$this->Post->save($parent_data);
+					$this->Post->manualLog('Forum', 'Edit', $this->userData['User']['username'], $this->Post->id);
+					
+					$this->Session->setFlash('The post has been saved.');
+					$this->redirect(array('action' => 'view', $id));
+				}
+			}	
+		} else {
+			$this->Session->setFlash('The post could not be saved. Please, try again.', 'default', array('class'=>'error-message'));
 		}
+		
 		
 		$this->set('id', $id);
 		$this->set('thread',  $this->Post->find('first', array('conditions'=>array('Post.id'=>$id))));
