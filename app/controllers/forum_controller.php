@@ -155,7 +155,7 @@ class ForumController extends AppController {
 		$this->set(compact('posts', 'users', 'boards'));
 	}
 	
-	function reply($id = null) {	
+	function reply($id = null) {
 		$this->Permissions->lock('Add Forum');
 		
         //check if the post is locked (i.e. no replys allowed)
@@ -201,11 +201,11 @@ class ForumController extends AppController {
 					
 					$this->Session->setFlash('The post has been saved.');
 					$this->redirect(array('action' => 'view', $id));
+				} else {
+					$this->Session->setFlash('The post could not be saved. Please, try again.', 'default', array('class'=>'error-message'));
 				}
 			}	
-		} else {
-			$this->Session->setFlash('The post could not be saved. Please, try again.', 'default', array('class'=>'error-message'));
-		}
+		} 
 		
 		
 		$this->set('id', $id);
