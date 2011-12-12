@@ -45,6 +45,12 @@ class UsersController extends AppController {
 			$this->Menu->addChild('Edit Profile', array('controller'=>'members', 'action'=>'edit', $userid), true); //add the reply link to the menu
 			$this->set('promotions', $this->Log->find('all', array('conditions'=>array('Log.additional_id'=>$userid, 'OR'=>array('Log.description'=>array('Promoted', 'Demoted'))), 'order'=>array('Log.id'=>'DESC'))));
 		}
+		
+		//find if the user is allowed to edit this profile
+		if($this->Permissions->check('Edit User') || $user['User']['username'] == $this->userData['User']['username']) {
+			$this->Menu->addChild('Edit Profile', array('controller'=>'members', 'action'=>'edit', $userid), true); //add the reply link to the menu
+		}
+		
 		if($this->Permissions->check('Edit Permissions'))
 			$this->Menu->addChild('Edit Permissions', array('controller'=>'permissions', 'action'=>'edit', $userid), true); //add the reply link to the menu
 			
@@ -91,7 +97,11 @@ class UsersController extends AppController {
 	}
 
 	function edit($id = null) {
-		$this->Permissions->lock('Edit User');
+		$user = $this->User->find('first', array('conditions'=>array('User.id'=>$id)));
+		
+		if($this->userData['User']['username'] != $user['User']['username']) {
+			$this->Permissions->lock('Edit User');
+		}
 		
 		if (!$id && empty($this->data)) {
 			$this->Session->setFlash('Invalid user', 'default', array('class'=>'error-message'));
