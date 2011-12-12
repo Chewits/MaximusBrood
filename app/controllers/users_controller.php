@@ -42,7 +42,6 @@ class UsersController extends AppController {
 				$this->Menu->addChild('Reinstate', array('controller'=>'members', 'action'=>'reinstate', $userid), true); //add the reply link to the menu
 			}
 			
-			$this->Menu->addChild('Edit Profile', array('controller'=>'members', 'action'=>'edit', $userid), true); //add the reply link to the menu
 			$this->set('promotions', $this->Log->find('all', array('conditions'=>array('Log.additional_id'=>$userid, 'OR'=>array('Log.description'=>array('Promoted', 'Demoted'))), 'order'=>array('Log.id'=>'DESC'))));
 		}
 		
