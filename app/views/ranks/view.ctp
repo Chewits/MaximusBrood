@@ -19,7 +19,7 @@
 
 <div class="record">
 <h2><?= $html->link($rank['Rank']['title'], array('controller'=>'ranks', 'action'=>'view', $rank['Rank']['id'])); ?></h2>
-<p><?= $filter->text($rank['Rank']['description']); ?></p>
+<p><?= $bbcode->bbcodeon($rank['Rank']['description']); ?></p>
 <p class="actions"><?= $permissions->linkList($permissionsData, $userData); ?></p>
 </div>
 
