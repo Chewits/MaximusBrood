@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 11, 2011 at 08:04 AM
+-- Generation Time: Dec 12, 2011 at 09:59 PM
 -- Server version: 5.1.44
 -- PHP Version: 5.2.13
 
@@ -257,7 +257,7 @@ CREATE TABLE `mb_logs` (
   `user_id` int(11) NOT NULL,
   `additional_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4424 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4444 ;
 
 --
 -- Dumping data for table `mb_logs`
@@ -4651,6 +4651,26 @@ INSERT INTO `mb_logs` VALUES(4420, 'User', 'Add', '', '2011-10-11 08:01:07', '::
 INSERT INTO `mb_logs` VALUES(4421, 'View', '/maximusbrood/members/index', '', '2011-10-11 08:01:07', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 0);
 INSERT INTO `mb_logs` VALUES(4422, 'View', '/maximusbrood/members/view/13', '', '2011-10-11 08:04:05', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 0);
 INSERT INTO `mb_logs` VALUES(4423, 'View', '/maximusbrood/members/view/13', '', '2011-10-11 08:04:07', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(4424, 'View', '/maximusbrood/members/index', '', '2011-10-11 08:05:32', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(4425, 'View', '/maximusbrood/forum', '', '2011-10-11 08:05:34', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(4426, 'View', '/maximusbrood/forum', '', '2011-10-11 08:05:37', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(4427, 'View', '/maximusbrood/members/view/1', '', '2011-10-11 08:05:41', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(4428, 'View', '/maximusbrood/forum', '', '2011-10-11 08:08:35', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(4429, 'View', '/maximusbrood/', '', '2011-10-11 08:08:37', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.1 (KHTML, like Gecko) Chrome/14.0.835.186 Safari/535.1', 1, 0);
+INSERT INTO `mb_logs` VALUES(4430, 'View', '/maximusbrood/', '', '2011-12-06 20:30:27', '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2', 1, 0);
+INSERT INTO `mb_logs` VALUES(4431, 'View', '/maximusbrood/forum', '', '2011-12-06 20:30:30', '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2', 1, 0);
+INSERT INTO `mb_logs` VALUES(4432, 'Post', 'Edit', '', '2011-12-06 20:30:34', '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2', 1, 0);
+INSERT INTO `mb_logs` VALUES(4433, 'View', '/maximusbrood/members/view/6', '', '2011-12-06 20:33:29', '127.0.0.1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2', 1, 0);
+INSERT INTO `mb_logs` VALUES(4434, 'View', '/maximusbrood/categories/view/33', '', '2011-12-06 20:33:51', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2', 1, 0);
+INSERT INTO `mb_logs` VALUES(4435, 'View', '/maximusbrood/menu/index', '', '2011-12-06 20:33:53', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2', 1, 0);
+INSERT INTO `mb_logs` VALUES(4436, 'View', '/maximusbrood/', '', '2011-12-06 20:33:58', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2', 1, 0);
+INSERT INTO `mb_logs` VALUES(4437, 'View', '/maximusbrood/forum/view/76', '', '2011-12-06 20:34:09', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2', 1, 0);
+INSERT INTO `mb_logs` VALUES(4438, 'View', '/maximusbrood/forum/info/78', '', '2011-12-06 20:34:13', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2', 1, 0);
+INSERT INTO `mb_logs` VALUES(4439, 'View', '/MaximusBrood/', '', '2011-12-06 20:53:56', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2', 1, 0);
+INSERT INTO `mb_logs` VALUES(4440, 'View', '/MaximusBrood/forum', '', '2011-12-06 20:53:59', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2', 1, 0);
+INSERT INTO `mb_logs` VALUES(4441, 'View', '/MaximusBrood/members/index', '', '2011-12-06 20:54:00', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2', 1, 0);
+INSERT INTO `mb_logs` VALUES(4442, 'View', '/MaximusBrood/ranks', '', '2011-12-06 20:54:05', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2', 1, 0);
+INSERT INTO `mb_logs` VALUES(4443, 'View', '/MaximusBrood/', '', '2011-12-06 20:54:09', '::1', 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_0) AppleWebKit/535.2 (KHTML, like Gecko) Chrome/15.0.874.121 Safari/535.2', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -4896,7 +4916,7 @@ INSERT INTO `mb_posts` VALUES(27, 'Lipsum', 'But I must explain to you how all t
 INSERT INTO `mb_posts` VALUES(28, 'Lipsum', 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?', '2011-06-30 11:32:05', '2011-06-30 11:32:05', 1, ';', 0, 1, 0, 0, 0);
 INSERT INTO `mb_posts` VALUES(29, 'Lipsum', 'But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain \r\n\r\nthat produces no resultant pleasure?\r\n\r\nFinnedit', '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, ';', 0, 0, 0, 0, 0);
 INSERT INTO `mb_posts` VALUES(31, 'Test', 'test', '2011-07-13 15:15:38', '2011-07-30 15:24:21', 1, ';1;', 0, 1, 1, 0, 0);
-INSERT INTO `mb_posts` VALUES(40, 'bbcode test', 'testing some bbcode\r\n\r\n[b]this should be bold[/b]\r\n\r\n[i]italic[/i]\r\n\r\n[u] underlined [/u]', '2011-08-04 22:23:42', '2011-08-10 11:00:21', 6, ';', 0, 6, 2, 0, 0);
+INSERT INTO `mb_posts` VALUES(40, 'bbcode test', 'testing some bbcode\r\n\r\n[b]this should be bold[/b]\r\n\r\n[i]italic[/i]\r\n\r\n[u] underlined [/u]', '2011-08-04 22:23:42', '2011-08-10 11:00:21', 6, ';1;', 0, 6, 2, 0, 0);
 INSERT INTO `mb_posts` VALUES(41, 'why', '[SIZE=9]small[/SIZE]\r\n\r\n[SIZE=13]normal[/SIZE]\r\n\r\n[SIZE=20]large[/SIZE]\r\n\r\n[SIZE=26]huge[/SIZE]\r\n\r\n[SIZE=36]massive[/SIZE]', '2011-08-04 22:25:04', '0000-00-00 00:00:00', 0, ';', 40, 6, 2, 0, 0);
 INSERT INTO `mb_posts` VALUES(42, '', '[img]http://images.wikia.com/starcraft/images/2/2c/Starcraft_SC1_Cover1.jpg[/img]\r\n\r\nThis is image test', '2011-08-04 22:28:11', '0000-00-00 00:00:00', 0, ';', 40, 6, 0, 0, 0);
 INSERT INTO `mb_posts` VALUES(43, 'not needed', 'does autolink still work? http://www.google.com', '2011-08-04 22:31:26', '0000-00-00 00:00:00', 0, ';', 40, 6, 0, 0, 0);
