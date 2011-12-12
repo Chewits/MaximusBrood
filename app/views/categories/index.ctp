@@ -20,7 +20,7 @@
 <div class="record">
 	<h2><?= $html->link($category['Category']['title'], array('controller'=>'categories', 'action'=>'view', $category['Category']['id'])); ?></h2>
 	<p>
-		<?= $filter->text($category['Category']['description']); ?>
+		<?= $bbcode->bbcodeon($category['Category']['description']); ?>
 	</p>
 	<p class="actions"><?= $permissionsLinks ?></p>
 </div>

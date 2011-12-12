@@ -7,8 +7,10 @@
 	last long, so make sure you understand it!</p>
 </div>
 
+
 <fieldset>
  	<legend>Add Rank</legend>
+
 	<?php
 		echo $this->Form->create('Rank');
 		echo $this->Form->input('title', array('between'=>': ')).'</br>';

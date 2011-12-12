@@ -6,6 +6,7 @@
 	the Commanders. Those who can't appreciate the importance of the hierarchy won't 
 	last long, so make sure you understand it!</p>
 </div>
+<?php $javascript->link('bbcode.js', false); ?>
 
 <?
 	$permissionsData = array(

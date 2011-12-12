@@ -2,6 +2,7 @@
 class RanksController extends AppController {
 
 	var $name = 'Ranks';
+	var $helpers = array('Bbcode', 'Html', 'Form', 'Javascript');
 
 	function index() {
 		$this->Rank->recursive = 0;
