@@ -107,7 +107,7 @@ class CategoriesController extends AppController {
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Category->delete($id)) {
-			if($this->data['Category']['menu'] == '1') {
+			if($this->data['Category']['link_id'] != 0) {
 				//have to also delete menu as well
 				if($this->Category->Link->delete($this->data['Link']['id'])) {
 					$this->Session->setFlash(__('Category and menu item deleted', true));
