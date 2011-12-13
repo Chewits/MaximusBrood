@@ -31,14 +31,14 @@ $replyText = $replyCount.$replyWord;
 	<tr class="record">
 		<td style="width: 15%;">
 			<?= $html->link($post['User']['username'], array('controller'=>'users', 'action'=>'view', $post['User']['id']), array('title'=>$post['User']['Rank']['title'].' '.$post['User']['username'])); ?></br>
-			(<?= $post['User']['post_count']; ?> posts)<br/>
+			(<?= $post['User']['post_count']; ?> posts)<br/><br/>
 			Date:<br />
-			 <?= $time->nice($post['Post']['timestamp']); ?><br />
+			 <?= $time->niceShort($post['Post']['timestamp']); ?><br />
 			 <?= $permissionsLinks ?>
 		</td>
 		<td><?= $bbcode->bbcodeon($post['Post']['description']); ?><br /><br />--<br /><br /><?= $bbcode->bbcodeon_noimg($post['User']['Profile']['signature']); ?></td>
 	</tr>
 <?php endforeach; ?>
 </table>
-<p class="centre"><?= $html->link('Add Reply', array('controller'=>'forum', 'action'=>'reply', $thread['Post']['id'])); ?></p>
+<p class="center"><?= $html->link('Add Reply', array('controller'=>'forum', 'action'=>'reply', $thread['Post']['id'])); ?></p><br />
 <?= $this->element('pager'); ?>
