@@ -100,12 +100,23 @@ class CategoriesController extends AppController {
 	function delete($id = null) {
 		$this->Permissions->lock('Delete Category');
 	
+		$this->data = $this->Category->read(null, $id);
+	
 		if (!$id) {
 			$this->Session->setFlash(__('Invalid id for category', true));
 			$this->redirect(array('action'=>'index'));
 		}
 		if ($this->Category->delete($id)) {
-			$this->Session->setFlash(__('Category deleted', true));
+			if($this->data['Category']['menu'] == '1') {
+				//have to also delete menu as well
+				if($this->Category->Link->delete($this->data['Link']['id'])) {
+					$this->Session->setFlash(__('Category and menu item deleted', true));
+				} else {
+					$this->Session->setFlash(__('Category deleted. The associated menu item could not be deleted.', true));
+				}
+			} else {
+				$this->Session->setFlash(__('Category deleted', true));	
+			}
 			$this->redirect(array('action'=>'index'));
 		}
 		$this->Session->setFlash(__('Category was not deleted', true));
