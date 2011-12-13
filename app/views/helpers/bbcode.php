@@ -235,6 +235,13 @@ function quotereplace($content) {
 			$content = preg_replace("#\[hr]#si", "<hr />", $content);
 			$content = preg_replace("#\[sub\](.*?)\[/sub\]#si", "<sub>\\1</sub>",$content);
 			$content = preg_replace("#\[sup\](.*?)\[/sup\]#si", "<sup>\\1</sup>",$content);
+			$content = preg_replace("#\</li><br />#si", "</li>",$content);
+			$content = preg_replace("#\</ul><br />#si", "</ul>",$content);
+			$content = preg_replace("#\</ol><br />#si", "</ol>",$content);
+			$content = preg_replace("#\<ol type=\"a\" class='list_alpha'><br />#si", "<ol type=\"a\" class='list_alpha'>",$content);
+			$content = preg_replace("#\<ol class='list_num'><br />#si", "<ol class='list_num'>",$content);
+			$content = preg_replace("#\<ul class='list'><br />#si", "<ul class='list'>",$content);
+			
 		return $content;
 	}
 
